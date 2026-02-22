@@ -47,19 +47,20 @@ export const Profile = (profileData: ProfileDTO) => {
 
       <div className={styles.divider}></div>
 
-      <Input
-        className={styles.component_input}
-        leftIcon="user"
-        id="fullName"
-        label={translate.labels('fullName')}
-        placeholder={translate.placeholders('fullName')}
-        {...register('fullName')}
-        error={
-          errors.fullName?.message
-            ? translate.validations(errors.fullName?.message)
-            : ''
-        }
-      />
+      <div className={styles.component_input}>
+        <Input
+          leftIcon="user"
+          id="fullName"
+          label={translate.labels('fullName')}
+          placeholder={translate.placeholders('fullName')}
+          {...register('fullName')}
+          error={
+            errors.fullName?.message
+              ? translate.validations(errors.fullName?.message)
+              : ''
+          }
+        />
+      </div>
 
       <Input
         leftIcon="email"

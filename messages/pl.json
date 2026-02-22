@@ -46,7 +46,9 @@
     "confirmPassword": "Potwierdź hasło",
     "all": "Wszystkie",
     "direct": "Bezpośrednie",
-    "groups": "Grupy"
+    "groups": "Grupy",
+    "newPassword": "Nowe hasło",
+    "confirmNewPassword": "Potwierdź nowe hasło"
   },
   "placeholders": {
     "fullName": "Wpisz imię i nazwisko",
@@ -55,7 +57,9 @@
     "confirmPassword": "Potwierdź hasło",
     "typeMessage": "Napisz wiadomość...",
     "chooseLang": "Wybierz język",
-    "searchConversations": "Szukaj rozmów"
+    "searchConversations": "Szukaj rozmów",
+    "newPassword": "Wprowadź nowe hasło",
+    "confirmNewPassword": "Potwierdź nowe hasło"
   },
   "button": {
     "logIn": "Zaloguj się",
@@ -63,11 +67,18 @@
     "pending": "Oczekiwanie...",
     "save": "Zapisz zmiany",
     "changeAvatar": "Zmień awatar",
-    "signOut": "Wyloguj się"
+    "signOut": "Wyloguj się",
+    "updatePassword": "Zaktualizuj hasło"
   },
   "validations": {
     "required": "To pole jest wymagane",
     "invalidEmail": "Niepoprawny adres e-mail. Wpisz go w formacie: twojemail@example.com",
-    "passwordNoSymbol": "Co najmniej 1 symbol (!@#$&*^)"
+    "passwordTooShort": "Minimum 8 znaków",
+    "passwordNoUppercase": "Co najmniej jedna wielka litera (A-Z)",
+    "passwordNoLowercase": "Co najmniej jedna mała litera (a-z)",
+    "passwordNoNumber": "Co najmniej jedna cyfra (0-9)",
+    "passwordNoSymbol": "Co najmniej jeden znak specjalny (!@#$%^&*)",
+    "passwordsDontMatch": "Hasła nie są identyczne",
+    "newPasswordMustBeDifferent": "Nowe hasło musi różnić się od starego"
   }
 }

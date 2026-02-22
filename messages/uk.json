@@ -46,7 +46,9 @@
     "confirmPassword": "Підтвердіть пароль",
     "all": "Усі",
     "direct": "Особисті",
-    "groups": "Групи"
+    "groups": "Групи",
+    "newPassword": "Новий пароль",
+    "confirmNewPassword": "Підтвердьте новий пароль"
   },
   "placeholders": {
     "fullName": "Введіть повне ім'я",
@@ -55,7 +57,9 @@
     "confirmPassword": "Підтвердіть пароль",
     "typeMessage": "Напишіть повідомлення...",
     "chooseLang": "Оберіть мову",
-    "searchConversations": "Пошук бесід"
+    "searchConversations": "Пошук бесід",
+    "newPassword": "Введіть новий пароль",
+    "confirmNewPassword": "Підтвердьте новий пароль"
   },
   "button": {
     "logIn": "Увійти",
@@ -63,11 +67,18 @@
     "pending": "Завантаження...",
     "save": "Зберегти зміни",
     "changeAvatar": "Змінити аватар",
-    "signOut": "Вийти"
+    "signOut": "Вийти",
+    "updatePassword": "Оновити пароль"
   },
   "validations": {
     "required": "Це поле є обов'язковим",
     "invalidEmail": "Неправильний email. Будь ласка, введіть його у форматі: youremail@example.com",
-    "passwordNoSymbol": "Щонайменше 1 символ (!@#$&*^)"
+    "passwordTooShort": "Мінімум 8 символів",
+    "passwordNoUppercase": "Хоча б одна велика літера (A-Z)",
+    "passwordNoLowercase": "Хоча б одна мала літера (a-z)",
+    "passwordNoNumber": "Хоча б одна цифра (0-9)",
+    "passwordNoSymbol": "Хоча б один спецсимвол (!@#$%^&*)",
+    "passwordsDontMatch": "Паролі не збігаються",
+    "newPasswordMustBeDifferent": "Новий пароль має відрізнятися від старого"
   }
 }

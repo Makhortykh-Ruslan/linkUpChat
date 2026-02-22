@@ -1,15 +1,15 @@
 import { z } from 'zod';
 
 import {
-  emailControl,
-  fullNameControl,
-  passwordControl,
+  defaultRequiredRule,
+  emailRule,
+  passwordRules,
 } from '@/src/core/validations';
 
 export const signUpFormSchema = z.object({
-  fullName: fullNameControl,
-  email: emailControl,
-  password: passwordControl,
+  fullName: defaultRequiredRule,
+  email: emailRule.min(1, 'required'),
+  password: passwordRules,
 });
 
 export type TSignIUpFormSchema = z.infer<typeof signUpFormSchema>;

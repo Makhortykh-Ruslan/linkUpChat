@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { emailControl, passwordControl } from '@/src/core/validations';
+import { emailRule, passwordRules } from '@/src/core/validations';
 
 export const signInFormSchema = z.object({
-  email: emailControl,
-  password: passwordControl,
+  email: emailRule.min(1, 'required'),
+  password: passwordRules.min(1, 'required'),
 });
 
 export type TSignInFormSchema = z.infer<typeof signInFormSchema>;

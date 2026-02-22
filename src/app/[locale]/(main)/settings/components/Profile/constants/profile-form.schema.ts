@@ -1,14 +1,14 @@
 import { z } from 'zod';
 
 import {
-  emailControl,
-  fullNameControl,
+  defaultRequiredRule,
+  emailRule,
   idControl,
 } from '@/src/core/validations';
 
 export const profileFormSchema = z.object({
-  fullName: fullNameControl,
-  email: emailControl,
+  fullName: defaultRequiredRule,
+  email: emailRule.min(1, 'required'),
   id: idControl,
 });
 

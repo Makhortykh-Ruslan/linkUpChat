@@ -1,21 +1,20 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { startTransition, useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import type { ProfileDTO } from '@/src/core/dto';
-import { EControlName } from '@/src/core/enums';
+import {
+  changePasswordFormSchema,
+  type TChangePasswordFormSchema,
+} from '../constants';
+import { useActionState } from 'react';
 import { updateProfileInfoService } from '@/src/core/services';
 
-import { profileFormSchema, type TProfileFormSchema } from '../constants';
-
-export const useProfileForm = ({ email, fullName, id }: ProfileDTO) => {
+export const useChangePasswordForm = () => {
   const titles = useTranslations('titles');
   const labels = useTranslations('labels');
   const button = useTranslations('button');
   const validations = useTranslations('validations');
   const placeholders = useTranslations('placeholders');
-  const descriptions = useTranslations('descriptions');
 
   const translate = {
     titles,
@@ -23,21 +22,15 @@ export const useProfileForm = ({ email, fullName, id }: ProfileDTO) => {
     button,
     validations,
     placeholders,
-    descriptions,
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid, isDirty },
-  } = useForm<TProfileFormSchema>({
-    resolver: zodResolver(profileFormSchema),
+  } = useForm<TChangePasswordFormSchema>({
+    resolver: zodResolver(changePasswordFormSchema),
     mode: 'onChange',
-    defaultValues: {
-      email,
-      fullName,
-      id,
-    },
   });
 
   const [state, formAction, isPending] = useActionState(
@@ -48,23 +41,14 @@ export const useProfileForm = ({ email, fullName, id }: ProfileDTO) => {
     },
   );
 
-  const onSubmit = (data: TProfileFormSchema) => {
-    startTransition(() => {
-      const formData = new FormData();
-
-      formData.append(EControlName.FULL_NAME, data.fullName);
-      formData.append(EControlName.EMAIL, data.email);
-      formData.append(EControlName.ID, data.id);
-
-      formAction(formData);
-    });
+  const onSubmit = (data: TChangePasswordFormSchema) => {
+    console.log('data', data);
   };
 
   return {
     register,
     translate,
     errors,
-    serverError: state.message,
     handleSubmit: handleSubmit(onSubmit),
     isLoading: isPending || isSubmitting,
     isDisableSubmit: isPending || isSubmitting || !isValid || !isDirty,
