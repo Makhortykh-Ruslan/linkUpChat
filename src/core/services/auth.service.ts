@@ -8,8 +8,8 @@ import {
   SUCCESS_DEFAULT_RESPONSE_MODEL,
 } from '@/src/core/constants';
 import { appRoutes } from '@/src/core/constants/router-paths';
-import { EControlName } from '@/src/core/enums';
-import type { ResponseEmptyModel, TTheme } from '@/src/core/types';
+import type { SignInModel, SignUpModel } from '@/src/core/models';
+import type { ResponseEmptyModel } from '@/src/core/types';
 import {
   insertProfileRepository,
   insertSystemSettingsRepository,
@@ -19,14 +19,13 @@ import {
 } from '@/src/infrastructure/supabase';
 
 export async function signInService(
-  prevData: ResponseEmptyModel,
-  formData: FormData,
+  _state: ResponseEmptyModel,
+  model: SignInModel,
 ): Promise<ResponseEmptyModel> {
   let redirectPath: string | null = null;
 
   try {
-    const email = formData.get(EControlName.EMAIL) as string;
-    const password = formData.get(EControlName.PASSWORD) as string;
+    const { email, password } = model;
 
     const { error } = await signIn(email, password);
 
@@ -50,38 +49,34 @@ export async function signInService(
 }
 
 export async function signUpService(
-  prevData: ResponseEmptyModel,
-  formData: FormData,
+  _state: ResponseEmptyModel,
+  model: SignUpModel,
 ): Promise<ResponseEmptyModel> {
   let redirectPath: string | null = null;
 
   try {
-    const email = formData.get(EControlName.EMAIL) as string;
-    const password = formData.get(EControlName.PASSWORD) as string;
-    const fullName = formData.get(EControlName.FULL_NAME) as string;
-    const language = formData.get(EControlName.LANGUAGE) as string;
-    const theme = formData.get(EControlName.THEME) as TTheme;
-
     const {
       error: signUpError,
       data: { user },
-    } = await signUp(email, password);
+    } = await signUp(model.email, model.password);
 
-    if (signUpError)
+    if (signUpError) {
       return { ...ERROR_DEFAULT_RESPONSE_MODEL, message: signUpError.message };
+    }
 
     const authUserId = user?.id;
 
-    if (!authUserId)
+    if (!authUserId) {
       return {
         ...ERROR_DEFAULT_RESPONSE_MODEL,
         message: 'User ID generation failed',
       };
+    }
 
     const { error: profileError } = await insertProfileRepository({
       id: authUserId,
-      email,
-      user_name: fullName,
+      email: model.email,
+      user_name: model.fullName,
       avatar_url: '',
       language: 'en',
       theme: 'light',
@@ -93,8 +88,8 @@ export async function signUpService(
 
     const { error: settingsError } = await insertSystemSettingsRepository({
       user_id: authUserId,
-      language,
-      theme,
+      language: 'en',
+      theme: 'light',
     });
 
     if (settingsError)

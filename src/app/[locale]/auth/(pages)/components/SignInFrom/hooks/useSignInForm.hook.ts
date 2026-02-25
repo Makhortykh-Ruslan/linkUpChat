@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import { startTransition, useActionState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { ERROR_DEFAULT_RESPONSE_MODEL } from '@/src/core/constants';
 import { signInService } from '@/src/core/services';
 
 import { signInFormSchema, type TSignInFormSchema } from '../constants';
@@ -32,8 +33,7 @@ export const useSignInForm = () => {
   });
 
   const [state, formAction, isPending] = useActionState(signInService, {
-    success: false,
-    data: null,
+    ...ERROR_DEFAULT_RESPONSE_MODEL,
   });
 
   useEffect(() => {
@@ -45,13 +45,7 @@ export const useSignInForm = () => {
   }, [state]);
 
   const onSubmit = (data: TSignInFormSchema) => {
-    startTransition(() => {
-      const formData = new FormData();
-      formData.append('email', data.email);
-      formData.append('password', data.password);
-
-      formAction(formData);
-    });
+    startTransition(() => formAction(data));
   };
 
   return {

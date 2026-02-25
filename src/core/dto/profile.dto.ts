@@ -1,5 +1,5 @@
 import type { ProfileModel } from '@/src/core/models';
-import type { TTheme } from '@/src/core/types';
+import type { TLang, TTheme } from '@/src/core/types';
 
 export type ProfileDTO = Pick<ProfileModel, 'id' | 'email'> & {
   fullName: string;
@@ -7,4 +7,5 @@ export type ProfileDTO = Pick<ProfileModel, 'id' | 'email'> & {
   createdAt?: string | undefined;
   language: string;
   theme: TTheme;
+  locale: TLang;
 };

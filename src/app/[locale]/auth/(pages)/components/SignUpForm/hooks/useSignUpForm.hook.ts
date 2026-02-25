@@ -1,16 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { useLocale } from 'next-intl';
 import { startTransition, useActionState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { ERROR_DEFAULT_RESPONSE_MODEL } from '@/src/core/constants';
 import { signUpService } from '@/src/core/services';
 
 import { signUpFormSchema, type TSignIUpFormSchema } from '../constants';
 
 export const useSignUpForm = () => {
-  const locale = useLocale();
-
   const labels = useTranslations('labels');
   const button = useTranslations('button');
   const validations = useTranslations('validations');
@@ -35,8 +33,7 @@ export const useSignUpForm = () => {
   });
 
   const [state, formAction, isPending] = useActionState(signUpService, {
-    success: false,
-    data: null,
+    ...ERROR_DEFAULT_RESPONSE_MODEL,
   });
 
   useEffect(() => {
@@ -48,16 +45,7 @@ export const useSignUpForm = () => {
   }, [state]);
 
   const onSubmit = (data: TSignIUpFormSchema) => {
-    startTransition(() => {
-      const formData = new FormData();
-
-      formData.append('fullName', data.fullName);
-      formData.append('email', data.email);
-      formData.append('password', data.password);
-      formData.append('language', locale);
-
-      formAction(formData);
-    });
+    startTransition(() => formAction(data));
   };
 
   return {
