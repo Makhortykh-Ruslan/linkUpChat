@@ -70,6 +70,24 @@
     "signOut": "Wyloguj się",
     "updatePassword": "Zaktualizuj hasło"
   },
+  "errors": {
+    "authError": {
+      "title": "Błąd uwierzytelniania",
+      "description": "Sprawdź e-mail i hasło i spróbuj ponownie."
+    }
+  },
+  "success": {
+    "profileSaved": {
+      "title": "Zmiany zapisane",
+      "description": "Twój profil został pomyślnie zaktualizowany."
+    }
+  },
+  "warning": {
+    "incompleteProfile": {
+      "title": "Niekompletny profil",
+      "description": "Uzupełnij imię i e-mail, aby uzyskać pełny dostęp."
+    }
+  },
   "validations": {
     "required": "To pole jest wymagane",
     "invalidEmail": "Niepoprawny adres e-mail. Wpisz go w formacie: twojemail@example.com",

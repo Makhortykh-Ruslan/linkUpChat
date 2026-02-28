@@ -70,6 +70,24 @@
     "signOut": "Вийти",
     "updatePassword": "Оновити пароль"
   },
+  "errors": {
+    "authError": {
+      "title": "Помилка авторизації",
+      "description": "Перевірте email та пароль і спробуйте знову."
+    }
+  },
+  "success": {
+    "profileSaved": {
+      "title": "Зміни збережено",
+      "description": "Ваш профіль успішно оновлено."
+    }
+  },
+  "warning": {
+    "incompleteProfile": {
+      "title": "Незавершений профіль",
+      "description": "Заповніть ім'я та email для повного доступу."
+    }
+  },
   "validations": {
     "required": "Це поле є обов'язковим",
     "invalidEmail": "Неправильний email. Будь ласка, введіть його у форматі: youremail@example.com",

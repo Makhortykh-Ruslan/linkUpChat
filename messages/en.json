@@ -70,6 +70,24 @@
     "signOut": "Sign out",
     "updatePassword": "Update Password"
   },
+  "errors": {
+    "authError": {
+      "title": "Authentication error",
+      "description": "Please check your email and password and try again."
+    }
+  },
+  "success": {
+    "profileSaved": {
+      "title": "Changes saved",
+      "description": "Your profile has been updated successfully."
+    }
+  },
+  "warning": {
+    "incompleteProfile": {
+      "title": "Incomplete profile",
+      "description": "Fill in your name and email for full access."
+    }
+  },
   "validations": {
     "required": "This field is required",
     "invalidEmail": "Incorrect current email. Please enter it in the format: youremail@example.com",
