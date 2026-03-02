@@ -14,7 +14,9 @@ export async function appConfig(urlLocale: string) {
   let dbLocale = urlLocale;
 
   if (authUser) {
-    const { data: profile } = await getSystemSettingByUserIdRepository(authUser.id);
+    const { data: profile } = await getSystemSettingByUserIdRepository(
+      authUser.id,
+    );
 
     if (profile) {
       theme = profile.theme;

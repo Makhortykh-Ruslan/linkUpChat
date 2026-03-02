@@ -3,9 +3,9 @@ import { useTranslations } from 'next-intl';
 import { startTransition } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useActionInterceptor } from '@/src/core/hooks';
 import type { ProfileDTO } from '@/src/core/dto';
 import { EControlName } from '@/src/core/enums';
+import { useActionInterceptor } from '@/src/core/hooks';
 import { updateProfileInfoService } from '@/src/core/services';
 
 import { profileFormSchema, type TProfileFormSchema } from '../constants';

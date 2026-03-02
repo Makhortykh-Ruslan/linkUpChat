@@ -30,12 +30,7 @@ export const AlertProvider: React.FC<{ children: React.ReactNode }> = ({
   return (
     <AlertContext.Provider value={{ showAlert, hideAlert }}>
       {children}
-      {alertConfig && (
-        <Alert
-          {...alertConfig}
-          onDismiss={hideAlert}
-        />
-      )}
+      {alertConfig && <Alert {...alertConfig} onDismiss={hideAlert} />}
     </AlertContext.Provider>
   );
 };

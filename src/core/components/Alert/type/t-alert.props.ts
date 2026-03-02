@@ -1,4 +1,3 @@
-import type { TAlertNamespace } from './t-alert-namespace';
 import type { TAlertVariant } from './t-alert-variant';
 
 export type TAlertProps = {

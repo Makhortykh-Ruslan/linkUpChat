@@ -23,94 +23,96 @@ export const Profile = (profileData: ProfileDTO) => {
 
   return (
     <>
-    <form onSubmit={handleSubmit} className={styles.component}>
-      <h2 className={styles.component_title}>{translate.titles('profile')}</h2>
+      <form onSubmit={handleSubmit} className={styles.component}>
+        <h2 className={styles.component_title}>
+          {translate.titles('profile')}
+        </h2>
 
-      <div className={styles.component_header}>
-        <Avatar
-          src={profileData.avatarUrl}
-          alt={profileData.fullName || 'Avatar'}
-          size="xl"
-        />
+        <div className={styles.component_header}>
+          <Avatar
+            src={profileData.avatarUrl}
+            alt={profileData.fullName || 'Avatar'}
+            size="xl"
+          />
 
-        <div className={styles.component_header_info}>
-          <p className={styles.component_header_info_title}>
-            {profileData.fullName}
-          </p>
-          <p className={styles.component_header_info_description}>
-            {profileData.email}
-          </p>
-          <Button
-            type="button"
-            color="transparent"
-            className={styles.component_header_info_btn}
-            onClick={() => setIsAvatarModalOpen(true)}
-          >
-            {translate.button('changeAvatar')}
-          </Button>
+          <div className={styles.component_header_info}>
+            <p className={styles.component_header_info_title}>
+              {profileData.fullName}
+            </p>
+            <p className={styles.component_header_info_description}>
+              {profileData.email}
+            </p>
+            <Button
+              type="button"
+              color="transparent"
+              className={styles.component_header_info_btn}
+              onClick={() => setIsAvatarModalOpen(true)}
+            >
+              {translate.button('changeAvatar')}
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.divider}></div>
+        <div className={styles.divider}></div>
 
-      <div className={styles.component_input}>
+        <div className={styles.component_input}>
+          <Input
+            leftIcon="user"
+            id="fullName"
+            label={translate.labels('fullName')}
+            placeholder={translate.placeholders('fullName')}
+            {...register('fullName')}
+            error={
+              errors.fullName?.message
+                ? translate.validations(errors.fullName?.message)
+                : ''
+            }
+          />
+        </div>
+
         <Input
-          leftIcon="user"
-          id="fullName"
-          label={translate.labels('fullName')}
-          placeholder={translate.placeholders('fullName')}
-          {...register('fullName')}
+          leftIcon="email"
+          id="email"
+          label={translate.labels('email')}
+          placeholder={translate.placeholders('email')}
+          {...register('email')}
           error={
-            errors.fullName?.message
-              ? translate.validations(errors.fullName?.message)
+            errors.email?.message
+              ? translate.validations(errors.email?.message)
               : ''
           }
         />
-      </div>
 
-      <Input
-        leftIcon="email"
-        id="email"
-        label={translate.labels('email')}
-        placeholder={translate.placeholders('email')}
-        {...register('email')}
-        error={
-          errors.email?.message
-            ? translate.validations(errors.email?.message)
-            : ''
-        }
-      />
-
-      <Button
-        className={styles.component_btn}
-        disabled={isDisableSubmit}
-        color="blue"
-        type="submit"
-      >
-        {isLoading && <Loader />}
-        {isLoading ? translate.button('pending') : translate.button('save')}
-      </Button>
-    </form>
-
-    <Modal
-      isOpen={isAvatarModalOpen}
-      onClose={() => setIsAvatarModalOpen(false)}
-      variant="fixed"
-    >
-      <div className="p-6">
-        <p className="text-gray-700 dark:text-gray-300">
-          Модалка зміни аватарки (тест)
-        </p>
         <Button
-          type="button"
+          className={styles.component_btn}
+          disabled={isDisableSubmit}
           color="blue"
-          className="mt-4"
-          onClick={() => setIsAvatarModalOpen(false)}
+          type="submit"
         >
-          Закрити
+          {isLoading && <Loader />}
+          {isLoading ? translate.button('pending') : translate.button('save')}
         </Button>
-      </div>
-    </Modal>
+      </form>
+
+      <Modal
+        isOpen={isAvatarModalOpen}
+        onClose={() => setIsAvatarModalOpen(false)}
+        variant="fixed"
+      >
+        <div className="p-6">
+          <p className="text-gray-700 dark:text-gray-300">
+            Модалка зміни аватарки (тест)
+          </p>
+          <Button
+            type="button"
+            color="blue"
+            className="mt-4"
+            onClick={() => setIsAvatarModalOpen(false)}
+          >
+            Закрити
+          </Button>
+        </div>
+      </Modal>
     </>
   );
 };

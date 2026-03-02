@@ -20,7 +20,8 @@
     "session": "Сесія",
     "preferences": "Налаштування",
     "darkMode": "Темний режим",
-    "changePassword": "Змінити пароль"
+    "changePassword": "Змінити пароль",
+    "changeAvatar": "Змінити аватар"
   },
   "descriptions": {
     "enterCredentials": "Введіть свої дані, щоб увійти в акаунт",
@@ -68,7 +69,9 @@
     "save": "Зберегти зміни",
     "changeAvatar": "Змінити аватар",
     "signOut": "Вийти",
-    "updatePassword": "Оновити пароль"
+    "updatePassword": "Оновити пароль",
+    "chooseFile": "Вибрати файл",
+    "cancel": "Скасувати"
   },
   "errors": {
     "authError": {

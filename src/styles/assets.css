@@ -1,41 +1,45 @@
 @theme inline {
-    --background-image-logo-gradient: linear-gradient(to right, #6366f1, #a855f7);
-    --background-image-purple-logo: linear-gradient(154deg, #E4BAFF 2.15%, #A628F8 97.73%);
-    --background-image-introducing: url('/images/introducing-background.png');
+  --background-image-logo-gradient: linear-gradient(to right, #6366f1, #a855f7);
+  --background-image-purple-logo: linear-gradient(
+    154deg,
+    #e4baff 2.15%,
+    #a628f8 97.73%
+  );
+  --background-image-introducing: url('/images/introducing-background.png');
 
-    --shadow-purple: 0 6.5px 9.75px -1.95px rgba(229, 231, 235, 0.40),
-    0 2.6px 3.9px -2.6px rgba(229, 231, 235, 0.40);
+  --shadow-purple:
+    0 6.5px 9.75px -1.95px rgba(229, 231, 235, 0.4),
+    0 2.6px 3.9px -2.6px rgba(229, 231, 235, 0.4);
 
-    --shadow-smooth: 0 7px 2px 0 rgba(0, 0, 0, 0.00),
-    0 5px 2px 0 rgba(0, 0, 0, 0.01),
-    0 3px 2px 0 rgba(0, 0, 0, 0.02),
-    0 1px 1px 0 rgba(0, 0, 0, 0.03),
+  --shadow-smooth:
+    0 7px 2px 0 rgba(0, 0, 0, 0), 0 5px 2px 0 rgba(0, 0, 0, 0.01),
+    0 3px 2px 0 rgba(0, 0, 0, 0.02), 0 1px 1px 0 rgba(0, 0, 0, 0.03),
     0 0 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 @utility text-main-title {
-    font-size: var(--text-18);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-title);
-    font-style: normal;
-    line-height: 24px;
+  font-size: var(--text-18);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-title);
+  font-style: normal;
+  line-height: 24px;
 }
 
 @utility text-main-description {
-    font-size: var(--text-14);
-    color: var(--color-description);
-    font-weight: var(--font-weight-regular);
-    font-style: normal;
-    line-height: 16px;
+  font-size: var(--text-14);
+  color: var(--color-description);
+  font-weight: var(--font-weight-regular);
+  font-style: normal;
+  line-height: 16px;
 }
 
 @utility lu-icon {
-    color: var(--color-title);
+  color: var(--color-title);
 }
 
 @utility truncate {
-    width: 100%;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

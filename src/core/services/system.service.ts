@@ -8,9 +8,7 @@ import {
   updateSystemSettingsRepository,
 } from '@/src/infrastructure/supabase';
 
-export const updateSystemService = async (
-  settings: SystemSettingsModel,
-) => {
+export const updateSystemService = async (settings: SystemSettingsModel) => {
   try {
     const authUser = await getAuthData();
 

@@ -1,6 +1,5 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 import { Portal } from '../Portal/Portal';
@@ -41,7 +40,7 @@ export const Alert = ({
         aria-live="polite"
       >
         <div className={styles.component}>
-          <div className="flex flex-1 flex-col gap-0 min-w-0">
+          <div className="flex min-w-0 flex-1 flex-col gap-0">
             <p className={styles.title}>{title}</p>
             {description != null && description !== '' && (
               <p className={styles.description}>{description}</p>

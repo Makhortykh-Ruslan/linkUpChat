@@ -1,14 +1,14 @@
 @theme inline {
-    --color-title: var(--color-title);
-    --color-description: var(--color-description);
+  --color-title: var(--color-title);
+  --color-description: var(--color-description);
 }
 
 :root {
-    --color-title: var(--color-gray-900);
-    --color-description: var(--color-gray-700);
+  --color-title: var(--color-gray-900);
+  --color-description: var(--color-gray-700);
 }
 
 .dark {
-    --color-title: var(--color-gray-50);
-    --color-description: var(--color-gray-600);
+  --color-title: var(--color-gray-50);
+  --color-description: var(--color-gray-600);
 }

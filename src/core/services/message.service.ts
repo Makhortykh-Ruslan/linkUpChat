@@ -24,14 +24,16 @@ export async function sendMessageServer(
 
     const sender_id = authUser.id;
     const content = formData.get(EControlName.CONTENT) as string;
-    const conversation_id = formData.get(EControlName.CONVERSATION_ID) as string;
+    const conversation_id = formData.get(
+      EControlName.CONVERSATION_ID,
+    ) as string;
 
     if (!content || !conversation_id) {
       return {
         ...ERROR_DEFAULT_RESPONSE_MODEL,
         message: 'Invalid form data.',
       };
-    }
+    } 
 
     const model = {
       content,

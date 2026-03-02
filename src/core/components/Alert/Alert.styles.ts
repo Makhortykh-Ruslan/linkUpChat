@@ -14,7 +14,10 @@ const variantMessage = {
   warning: 'text-amber-800 dark:text-amber-300',
 } as const;
 
-export const getAlertStyles = (variant: TAlertVariant, isVisible?: boolean) => ({
+export const getAlertStyles = (
+  variant: TAlertVariant,
+  isVisible?: boolean,
+) => ({
   wrapper: clsx(
     'fixed z-50 flex w-fit max-w-[min(400px,calc(100vw-32px))]',
     'bottom-4 right-4',
@@ -27,7 +30,9 @@ export const getAlertStyles = (variant: TAlertVariant, isVisible?: boolean) => (
     variantBorder[variant],
   ),
   title: clsx('flex-1 text-14 font-semibold', variantMessage[variant]),
-  description: clsx('mt-0.5 text-13 font-normal text-gray-700 dark:text-gray-300'),
+  description: clsx(
+    'mt-0.5 text-13 font-normal text-gray-700 dark:text-gray-300',
+  ),
   close:
     'shrink-0 cursor-pointer rounded p-1 text-gray-700 dark:text-gray-300 opacity-70 hover:opacity-100 focus:outline-none',
 });

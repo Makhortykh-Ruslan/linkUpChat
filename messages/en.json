@@ -1,9 +1,9 @@
 {
   "metadata": {
     "authTitle": "Authentication | LinkUp Chat",
-    "authDescription":"Login or Register to experience seamless messaging with LinkUp Chat.",
+    "authDescription": "Login or Register to experience seamless messaging with LinkUp Chat.",
     "chatTitle": "Chat | LinkUp Chat",
-    "chatDescription":"Chat texting calling and speaking each ather"
+    "chatDescription": "Chat texting calling and speaking each ather"
   },
   "titles": {
     "welcomeBack": "Welcome back",
@@ -20,7 +20,8 @@
     "session": "Session",
     "preferences": "Preferences",
     "darkMode": "Dark Mode",
-    "changePassword": "Change Password"
+    "changePassword": "Change Password",
+    "changeAvatar": "Change Avatar"
   },
   "descriptions": {
     "enterCredentials": "Enter your credentials to access your account",
@@ -68,7 +69,9 @@
     "save": "Save Changes",
     "changeAvatar": "Change avatar",
     "signOut": "Sign out",
-    "updatePassword": "Update Password"
+    "updatePassword": "Update Password",
+    "chooseFile": "Choose File",
+    "cancel": "Cancel"
   },
   "errors": {
     "authError": {

@@ -20,7 +20,8 @@
     "session": "Sesja",
     "preferences": "Preferencje",
     "darkMode": "Tryb nocny",
-    "changePassword": "Zmień hasło"
+    "changePassword": "Zmień hasło",
+    "changeAvatar": "Zmień awatar"
   },
   "descriptions": {
     "enterCredentials": "Wprowadź swoje dane, aby uzyskać dostęp do konta",
@@ -68,7 +69,9 @@
     "save": "Zapisz zmiany",
     "changeAvatar": "Zmień awatar",
     "signOut": "Wyloguj się",
-    "updatePassword": "Zaktualizuj hasło"
+    "updatePassword": "Zaktualizuj hasło",
+    "chooseFile": "Wybierz plik",
+    "cancel": "Anuluj"
   },
   "errors": {
     "authError": {

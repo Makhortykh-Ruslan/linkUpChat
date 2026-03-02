@@ -15,7 +15,8 @@ export const getModalStyles = (
   ),
   content: clsx(
     'relative max-h-[90vh] overflow-auto border border-main-border bg-gray-0 dark:bg-brand-925 shadow-xl transition-all duration-200 ease-out',
-    variant === 'fullscreen' && 'w-full h-full max-w-none max-h-none rounded-none',
+    variant === 'fullscreen' &&
+      'w-full h-full max-w-none max-h-none rounded-none',
     variant === 'fixed' && 'w-full max-w-lg rounded-[16px]',
     isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95',
     contentClassName,

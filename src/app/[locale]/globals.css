@@ -1,48 +1,56 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@import "../../styles/colors.css";
-@import "../../styles/typography.css";
-@import "../../styles/font-theme.css";
+@import '../../styles/colors.css';
+@import '../../styles/typography.css';
+@import '../../styles/font-theme.css';
 
-@import "../../styles/assets.css";
+@import '../../styles/assets.css';
 
 @theme {
-    --color-main-bg: var(--main-bg);
-    --color-main-border: var(--main-border);
+  --color-main-bg: var(--main-bg);
+  --color-main-border: var(--main-border);
 }
 
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
-    :root {
-        --font-inter: "Inter", sans-serif;
+  :root {
+    --font-inter: 'Inter', sans-serif;
 
-        --main-bg: var(--color-gray-50);
-        --main-border: var(--color-gray-300);
+    --main-bg: var(--color-gray-50);
+    --main-border: var(--color-gray-300);
 
-        --scroll-bg: var(--color-indigo-400);
-        --scroll-border: var(--color-indigo-50);
-    }
+    --scroll-bg: var(--color-indigo-400);
+    --scroll-border: var(--color-indigo-50);
+  }
 
-    .dark {
-        --main-bg: var(--color-brand-950);
-        --main-border: var(--color-brand-700);
+  .dark {
+    --main-bg: var(--color-brand-950);
+    --main-border: var(--color-brand-700);
 
-        --scroll-bg: var(--color-gray-50);
-        --scroll-border: var(--color-brand-700);
-    }
+    --scroll-bg: var(--color-gray-50);
+    --scroll-border: var(--color-brand-700);
+  }
 
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: var(--scroll-bg); border-radius: 10px; }
-    ::-webkit-scrollbar-thumb {
-        background: var(--scroll-bg);
-        border-radius: 10px;
-        border: 2px solid var(--scroll-border);
-    }
-    ::-webkit-scrollbar-thumb:hover { background: var(--scroll-bg); }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scroll-bg);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll-bg);
+    border-radius: 10px;
+    border: 2px solid var(--scroll-border);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-bg);
+  }
 
-    * {
-        scrollbar-width: thin;
-        scrollbar-color: var(--scroll-bg) var(--scroll-border);
-    }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-bg) var(--scroll-border);
+  }
 }
