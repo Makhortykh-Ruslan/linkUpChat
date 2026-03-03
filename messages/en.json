@@ -71,7 +71,11 @@
     "signOut": "Sign out",
     "updatePassword": "Update Password",
     "chooseFile": "Choose File",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "takePhoto": "Take photo",
+    "edit": "Edit",
+    "uploadFromDevice": "Upload from device",
+    "capturePhoto": "Capture"
   },
   "errors": {
     "authError": {

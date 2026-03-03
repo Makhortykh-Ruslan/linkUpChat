@@ -71,7 +71,11 @@
     "signOut": "Wyloguj się",
     "updatePassword": "Zaktualizuj hasło",
     "chooseFile": "Wybierz plik",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "takePhoto": "Zrób zdjęcie",
+    "edit": "Edytuj",
+    "uploadFromDevice": "Prześlij z urządzenia",
+    "capturePhoto": "Zrób zdjęcie"
   },
   "errors": {
     "authError": {

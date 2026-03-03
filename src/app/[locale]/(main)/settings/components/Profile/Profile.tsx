@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 
-import { Avatar, Button, Input, Loader, Modal } from '@/src/core/components';
+import { Avatar, Button, Input, Loader } from '@/src/core/components';
 import type { ProfileDTO } from '@/src/core/dto';
 
+import { ChangeAvatarModal } from './components';
 import { useProfileForm } from './hooks';
 import { ProfileStyles } from './Profile.styles';
 
 export const Profile = (profileData: ProfileDTO) => {
   const [isAvatarModalOpen, setIsAvatarModalOpen] = useState(false);
+
   const {
     translate,
     register,
@@ -94,25 +96,12 @@ export const Profile = (profileData: ProfileDTO) => {
         </Button>
       </form>
 
-      <Modal
+      <ChangeAvatarModal
         isOpen={isAvatarModalOpen}
         onClose={() => setIsAvatarModalOpen(false)}
-        variant="fixed"
-      >
-        <div className="p-6">
-          <p className="text-gray-700 dark:text-gray-300">
-            Модалка зміни аватарки (тест)
-          </p>
-          <Button
-            type="button"
-            color="blue"
-            className="mt-4"
-            onClick={() => setIsAvatarModalOpen(false)}
-          >
-            Закрити
-          </Button>
-        </div>
-      </Modal>
+        fullName={profileData.fullName}
+        avatarUrl={profileData.avatarUrl}
+      />
     </>
   );
 };

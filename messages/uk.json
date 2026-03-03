@@ -71,7 +71,11 @@
     "signOut": "Вийти",
     "updatePassword": "Оновити пароль",
     "chooseFile": "Вибрати файл",
-    "cancel": "Скасувати"
+    "cancel": "Скасувати",
+    "takePhoto": "Зробити фото",
+    "edit": "Редагувати",
+    "uploadFromDevice": "Завантажити з пристрою",
+    "capturePhoto": "Зняти фото"
   },
   "errors": {
     "authError": {

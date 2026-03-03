@@ -1,0 +1,2 @@
+export * from './ChangeAvatarModal/ChangeAvatarModal';
+
