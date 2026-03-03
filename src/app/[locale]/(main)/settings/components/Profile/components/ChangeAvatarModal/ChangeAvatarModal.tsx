@@ -37,7 +37,9 @@ export const ChangeAvatarModal = ({
   const buttons = useTranslations('button');
   const errors = useTranslations('errors');
   const { showAlert } = useAlert();
-  const [previewSrc, setPreviewSrc] = useState<string | null>(avatarUrl ?? null);
+  const [previewSrc, setPreviewSrc] = useState<string | null>(
+    avatarUrl ?? null,
+  );
   const [isUploading, setIsUploading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isWebcamMode, setIsWebcamMode] = useState(false);
@@ -99,8 +101,7 @@ export const ChangeAvatarModal = ({
     const play = async () => {
       try {
         await video.play();
-      } catch {
-      }
+      } catch {}
     };
 
     void play();
@@ -183,11 +184,7 @@ export const ChangeAvatarModal = ({
             </div>
           ) : (
             <div className={styles.avatarWithLoader}>
-              <Avatar
-                src={previewSrc}
-                alt={fullName || 'Avatar'}
-                size="xl"
-              />
+              <Avatar src={previewSrc} alt={fullName || 'Avatar'} size="xl" />
               {(isUploading || isDeleting) && (
                 <div className={styles.avatarLoader}>
                   <Loader />
@@ -256,5 +253,3 @@ export const ChangeAvatarModal = ({
     </Modal>
   );
 };
-
-
