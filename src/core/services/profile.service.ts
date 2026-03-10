@@ -5,7 +5,7 @@ import {
   ERROR_DEFAULT_RESPONSE_MODEL,
   SUCCESS_DEFAULT_RESPONSE_MODEL,
 } from '@/src/core/constants';
-import { EControlName } from '@/src/core/enums';
+import type { ProfileDTO } from '@/src/core/dto';
 import type { ChangePasswordModel } from '@/src/core/models';
 import type { ResponseModel } from '@/src/core/models/response.model';
 import type {
@@ -25,13 +25,14 @@ import {
 
 export const updateProfileInfoService = async (
   _prevData: ResponseEmptyModel,
-  formData: FormData,
+  data: ProfileDTO,
 ): Promise<ResponseEmptyModel> => {
   try {
+    const { fullName, ...restData } = data;
+
     const model = {
-      user_name: formData.get(EControlName.FULL_NAME) as string,
-      email: formData.get(EControlName.EMAIL) as string,
-      id: formData.get(EControlName.ID) as string,
+      ...restData,
+      user_name: fullName,
     };
 
     const authResponse = await updateAuthUser(model.email);
@@ -139,7 +140,7 @@ export const updatePasswordService = async (
       };
     }
 
-    const { data: updateData, error: updateError } = await updateAuthUser(
+    const { error: updateError } = await updateAuthUser(
       authUser.email,
       model.newPassword,
     );
@@ -153,7 +154,7 @@ export const updatePasswordService = async (
 
     return {
       ...SUCCESS_DEFAULT_RESPONSE_MODEL,
-      data: updateData,
+      data: null,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
@@ -165,7 +166,9 @@ export const updatePasswordService = async (
   }
 };
 
-function parseDataUrl(dataUrl: string): { buffer: Buffer; contentType: string } | null {
+function parseDataUrl(
+  dataUrl: string,
+): { buffer: Buffer; contentType: string } | null {
   const match = /^data:(image\/[a-z]+);base64,(.+)$/i.exec(dataUrl);
   if (!match || match[1] == null || match[2] == null) return null;
   const contentType = match[1];
@@ -221,8 +224,7 @@ export async function uploadAvatarService(
       data: { avatarUrl: avatarUrlWithCacheBust },
     };
   } catch (err) {
-    const message =
-      err instanceof Error ? err.message : 'profileSavedError';
+    const message = err instanceof Error ? err.message : 'profileSavedError';
     return { ...ERROR_DEFAULT_RESPONSE_MODEL, message, data: null };
   }
 }
@@ -256,8 +258,7 @@ export async function deleteAvatarService(): Promise<ResponseEmptyModel> {
 
     return { ...SUCCESS_DEFAULT_RESPONSE_MODEL };
   } catch (err) {
-    const message =
-      err instanceof Error ? err.message : 'profileSavedError';
+    const message = err instanceof Error ? err.message : 'profileSavedError';
     return { ...ERROR_DEFAULT_RESPONSE_MODEL, message };
   }
 }

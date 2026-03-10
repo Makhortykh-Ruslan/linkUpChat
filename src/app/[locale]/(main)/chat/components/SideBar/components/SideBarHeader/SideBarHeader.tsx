@@ -25,13 +25,10 @@ export const SideBarHeader = () => {
   const iconSearch = styles.icon + ' ' + 'ml-auto';
 
   return (
-    <section className={styles.component}>
-      <h3>{titles('messages')}</h3>
-      <Icon
-        name="search"
-        className={iconSearch}
-        onClick={handleAddNewConversation}
-      />
+    <section data-component="SideBarHeader" className={styles.component}>
+      <h3 className={styles.title}>{titles('messages')}</h3>
+      <Icon name="plus" className={iconSearch} />
+
       <Icon
         name="settings"
         className={styles.icon}

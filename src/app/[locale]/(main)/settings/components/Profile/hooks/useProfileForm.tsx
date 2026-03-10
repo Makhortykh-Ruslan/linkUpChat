@@ -4,7 +4,6 @@ import { startTransition } from 'react';
 import { useForm } from 'react-hook-form';
 
 import type { ProfileDTO } from '@/src/core/dto';
-import { EControlName } from '@/src/core/enums';
 import { useActionInterceptor } from '@/src/core/hooks';
 import { updateProfileInfoService } from '@/src/core/services';
 
@@ -46,15 +45,7 @@ export const useProfileForm = ({ email, fullName, id }: ProfileDTO) => {
   );
 
   const onSubmit = (data: TProfileFormSchema) => {
-    startTransition(() => {
-      const formData = new FormData();
-
-      formData.append(EControlName.FULL_NAME, data.fullName);
-      formData.append(EControlName.EMAIL, data.email);
-      formData.append(EControlName.ID, data.id);
-
-      execute(formData);
-    });
+    startTransition(() => execute(data as ProfileDTO));
   };
 
   return {
