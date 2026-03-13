@@ -21,7 +21,8 @@
     "preferences": "Preferences",
     "darkMode": "Dark Mode",
     "changePassword": "Change Password",
-    "changeAvatar": "Change Avatar"
+    "changeAvatar": "Change Avatar",
+    "searchUsers": "Search users"
   },
   "descriptions": {
     "enterCredentials": "Enter your credentials to access your account",
@@ -60,7 +61,8 @@
     "confirmNewPassword": "Enter confirm new password",
     "typeMessage": "Type a message...",
     "chooseLang": "Choose a language",
-    "searchConversations": "Search conversations"
+    "searchConversations": "Search conversations",
+    "searchUsers": "Search users..."
   },
   "button": {
     "logIn": "Log in",

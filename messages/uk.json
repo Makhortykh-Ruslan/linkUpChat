@@ -21,7 +21,8 @@
     "preferences": "Налаштування",
     "darkMode": "Темний режим",
     "changePassword": "Змінити пароль",
-    "changeAvatar": "Змінити аватар"
+    "changeAvatar": "Змінити аватар",
+    "searchUsers": "Пошук користувачів"
   },
   "descriptions": {
     "enterCredentials": "Введіть свої дані, щоб увійти в акаунт",
@@ -59,6 +60,7 @@
     "typeMessage": "Напишіть повідомлення...",
     "chooseLang": "Оберіть мову",
     "searchConversations": "Пошук бесід",
+    "searchUsers": "Пошук користувачів...",
     "newPassword": "Введіть новий пароль",
     "confirmNewPassword": "Підтвердьте новий пароль"
   },

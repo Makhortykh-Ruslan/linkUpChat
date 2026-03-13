@@ -18,4 +18,5 @@ export type TIcon =
   | 'attach'
   | 'audio'
   | 'arrow-left'
-  | 'arrow-down';
+  | 'arrow-down'
+  | 'close';

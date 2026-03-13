@@ -21,7 +21,8 @@
     "preferences": "Preferencje",
     "darkMode": "Tryb nocny",
     "changePassword": "Zmień hasło",
-    "changeAvatar": "Zmień awatar"
+    "changeAvatar": "Zmień awatar",
+    "searchUsers": "Szukaj użytkowników"
   },
   "descriptions": {
     "enterCredentials": "Wprowadź swoje dane, aby uzyskać dostęp do konta",
@@ -59,6 +60,7 @@
     "typeMessage": "Napisz wiadomość...",
     "chooseLang": "Wybierz język",
     "searchConversations": "Szukaj rozmów",
+    "searchUsers": "Szukaj użytkowników...",
     "newPassword": "Wprowadź nowe hasło",
     "confirmNewPassword": "Potwierdź nowe hasło"
   },
