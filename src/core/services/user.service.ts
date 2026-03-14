@@ -14,6 +14,7 @@ import type {
 } from '@/src/core/types';
 import {
   getAuthData,
+  getUsersExceptCurrentUserRepository,
   getUserByIdRepository,
   getSystemSettingByUserIdRepository,
   removeAvatarRepository,
@@ -260,5 +261,47 @@ export async function deleteAvatarService(): Promise<ResponseEmptyModel> {
   } catch (err) {
     const message = err instanceof Error ? err.message : 'userSavedError';
     return { ...ERROR_DEFAULT_RESPONSE_MODEL, message };
+  }
+}
+
+export async function getUsersWithFiltersService(
+  search?: string,
+): Promise<ResponseModel<UserDTO[]>> {
+  try {
+    const authUser = await getAuthData();
+    if (!authUser?.id) {
+      return {
+        ...ERROR_DEFAULT_RESPONSE_MODEL,
+        message: 'Not authenticated',
+        data: null,
+      };
+    }
+
+    const { data: users, error } = await getUsersExceptCurrentUserRepository(
+      authUser.id,
+      search ?? undefined,
+    );
+
+    if (error) {
+      return {
+        ...ERROR_DEFAULT_RESPONSE_MODEL,
+        message: error.message,
+        data: null,
+      };
+    }
+
+    const data = (users ?? []).map(mapUserToDTO);
+
+    return {
+      ...SUCCESS_DEFAULT_RESPONSE_MODEL,
+      data,
+    };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return {
+      ...ERROR_DEFAULT_RESPONSE_MODEL,
+      message,
+      data: null,
+    };
   }
 }

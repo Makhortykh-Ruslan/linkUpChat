@@ -8,4 +8,5 @@ export type UserModel = {
   created_at?: string;
   language: string;
   theme: TTheme;
+  is_online?: boolean;
 };

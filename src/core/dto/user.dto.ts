@@ -8,4 +8,5 @@ export type UserDTO = Pick<UserModel, 'id' | 'email'> & {
   language: string;
   theme: TTheme;
   locale: TLang;
+  isOnline: boolean;
 };

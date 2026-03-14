@@ -9,5 +9,6 @@ export const mapUserToDTO = (data: UserModel): UserDTO => {
     createdAt: data.created_at,
     fullName: data.user_name,
     avatarUrl: data.avatar_url,
+    isOnline: data.is_online ?? false,
   };
 };
