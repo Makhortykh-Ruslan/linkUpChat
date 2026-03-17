@@ -33,7 +33,7 @@ export async function sendMessageServer(
         ...ERROR_DEFAULT_RESPONSE_MODEL,
         message: 'Invalid form data.',
       };
-    } 
+    }
 
     const model = {
       content,

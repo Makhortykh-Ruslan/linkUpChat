@@ -3,9 +3,9 @@ import { getUserInfoService } from '@/src/core/services';
 import {
   ChangePassword,
   Preferences,
-  User,
   Session,
   SettingsHeader,
+  User,
 } from './components';
 import { SettingsPageStyles } from './page.styles';
 

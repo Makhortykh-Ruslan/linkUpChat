@@ -18,11 +18,7 @@ export async function getUserByIdRepository(
 ): Promise<PostgrestUserResponse> {
   const supabase = await createClient();
 
-  return supabase
-    .from(EBDTableName.USERS)
-    .select()
-    .eq('id', userId)
-    .single();
+  return supabase.from(EBDTableName.USERS).select().eq('id', userId).single();
 }
 
 export async function getUsersByIdsRepository(

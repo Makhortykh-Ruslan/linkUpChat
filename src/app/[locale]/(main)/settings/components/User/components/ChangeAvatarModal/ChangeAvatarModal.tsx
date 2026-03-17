@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-
 import { useTranslations } from 'next-intl';
+import { useEffect, useRef, useState } from 'react';
 
 import { Avatar, Button, Icon, Loader, Modal } from '@/src/core/components';
 import { useAlert } from '@/src/core/context';

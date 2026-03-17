@@ -7,7 +7,7 @@ import type { UserDTO } from '@/src/core/dto';
 import { useActionInterceptor } from '@/src/core/hooks';
 import { updateUserInfoService } from '@/src/core/services';
 
-import { userFormSchema, type TUserFormSchema } from '../constants';
+import { type TUserFormSchema, userFormSchema } from '../constants';
 
 export const useUserForm = ({ email, fullName, id }: UserDTO) => {
   const titles = useTranslations('titles');

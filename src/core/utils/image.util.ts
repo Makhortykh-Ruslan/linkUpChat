@@ -41,7 +41,10 @@ export const openCameraAndCaptureImage = async (
 export const getWebcamStream = async (
   facingMode: 'user' | 'environment' = 'user',
 ): Promise<MediaStream> => {
-  if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
+  if (
+    typeof navigator === 'undefined' ||
+    !navigator.mediaDevices?.getUserMedia
+  ) {
     throw new Error('getUserMedia is not supported');
   }
 
@@ -200,4 +203,3 @@ export const readImageAsDataUrl = (file: File): Promise<string> =>
 
     reader.readAsDataURL(file);
   });
-

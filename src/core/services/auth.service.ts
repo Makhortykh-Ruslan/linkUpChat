@@ -11,8 +11,8 @@ import { appRoutes } from '@/src/core/constants/router-paths';
 import type { SignInModel, SignUpModel } from '@/src/core/models';
 import type { ResponseEmptyModel } from '@/src/core/types';
 import {
-  insertUserRepository,
   insertSystemSettingsRepository,
+  insertUserRepository,
   signIn,
   signOut,
   signUp,
