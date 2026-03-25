@@ -2,10 +2,7 @@
 
 import { EBDTableName } from '@/src/core/enums';
 import type { UserModel } from '@/src/core/models';
-import type {
-  PostgrestUserListResponse,
-  PostgrestUserResponse,
-} from '@/src/core/types';
+import type { PostgrestUserResponse } from '@/src/core/types';
 import { createClient } from '@/src/infrastructure/supabase/server.supabase';
 
 export async function insertUserRepository(data: UserModel) {
@@ -48,22 +45,4 @@ export async function updateUserRepository(
     .eq('id', data.id)
     .select()
     .single();
-}
-
-export async function getUsersExceptCurrentUserRepository(
-  excludeUserId: string,
-  search?: string,
-): Promise<PostgrestUserListResponse> {
-  const supabase = await createClient();
-
-  let query = supabase
-    .from(EBDTableName.USERS)
-    .select('*')
-    .neq('id', excludeUserId);
-
-  if (search?.trim()) {
-    query = query.ilike('user_name', `%${search.trim()}%`);
-  }
-
-  return query;
 }

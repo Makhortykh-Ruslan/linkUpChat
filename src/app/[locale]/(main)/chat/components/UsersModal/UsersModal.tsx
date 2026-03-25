@@ -1,13 +1,11 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { type ChangeEvent, useMemo, useState } from 'react';
 
-import { Icon, Input, Modal } from '@/src/core/components';
-import { debounce } from '@/src/core/utils';
+import { Icon, Input, Loader, Modal } from '@/src/core/components';
 
 import { SearchedUser } from './components';
-import { MOCK_USERS } from './mock-users';
+import { useUsersSearch } from './hooks';
 import { UsersModalStyles } from './UsersModal.styles';
 
 type UsersModalProps = {
@@ -19,29 +17,7 @@ export const UsersModal = ({ isOpen, onClose }: UsersModalProps) => {
   const titles = useTranslations('titles');
   const placeholders = useTranslations('placeholders');
 
-  const [search, setSearch] = useState('');
-  const [debouncedSearch, setDebouncedSearch] = useState('');
-
-  const scheduleDebouncedSearch = useMemo(
-    () => debounce((value: string) => setDebouncedSearch(value), 300),
-    [],
-  );
-
-  const filteredUsers = useMemo(() => {
-    const q = debouncedSearch.trim().toLowerCase();
-    if (!q) {
-      return [];
-    }
-    return MOCK_USERS.filter((user) => user.fullName.toLowerCase().includes(q));
-  }, [debouncedSearch]);
-
-  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearch(value);
-    scheduleDebouncedSearch(value);
-
-    console.log('value', value);
-  };
+  const { search, users, isShowLoader, handleSearchChange } = useUsersSearch();
 
   const styles = UsersModalStyles;
 
@@ -71,9 +47,14 @@ export const UsersModal = ({ isOpen, onClose }: UsersModalProps) => {
               onChange={handleSearchChange}
             />
           </div>
-          {filteredUsers.length > 0 && (
+          {isShowLoader && (
+            <div className={styles.loader}>
+              <Loader />
+            </div>
+          )}
+          {!isShowLoader && users.length > 0 && (
             <div className={styles.list}>
-              {filteredUsers.map((user) => (
+              {users.map((user) => (
                 <SearchedUser
                   key={user.id}
                   fullName={user.fullName}

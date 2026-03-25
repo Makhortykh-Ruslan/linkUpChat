@@ -70,6 +70,7 @@ export async function signUpService(
     } = await signUp(model.email, model.password);
 
     if (signUpError) {
+      await signOut();
       return {
         ...ERROR_DEFAULT_RESPONSE_MODEL,
         message: 'authError',
@@ -79,6 +80,7 @@ export async function signUpService(
     const authUserId = user?.id;
 
     if (!authUserId) {
+      await signOut();
       return {
         ...ERROR_DEFAULT_RESPONSE_MODEL,
         message: 'authError',
@@ -95,6 +97,7 @@ export async function signUpService(
     });
 
     if (userError) {
+      await signOut();
       return {
         ...ERROR_DEFAULT_RESPONSE_MODEL,
         message: 'authError',
@@ -116,6 +119,7 @@ export async function signUpService(
 
     redirectPath = appRoutes.main.chat;
   } catch (error) {
+    await signOut();
     const message = error instanceof Error ? error.message : 'Unknown error';
 
     return {
