@@ -35,6 +35,19 @@ export async function getUsersByIdsRepository(
   return data ?? [];
 }
 
+export async function getUsersBySearchWithoutCurrentUserRepository(
+  search: string,
+  currentUserId: string,
+) {
+  const supabase = await createClient();
+
+  return supabase
+    .from(EBDTableName.USERS)
+    .select('*')
+    .neq('id', currentUserId)
+    .ilike('user_name', `%${search}%`);
+}
+
 export async function updateUserRepository(
   data: Partial<UserModel>,
 ): Promise<PostgrestUserResponse> {

@@ -27,6 +27,7 @@ export function useUsersSearch() {
     }
 
     const trimmed = query.trim();
+
     if (!trimmed) {
       setUsers([]);
       setIsShowLoader(false);
@@ -34,11 +35,14 @@ export function useUsersSearch() {
     }
 
     setIsShowLoader(true);
+
     try {
       const response = await getUsersWithFiltersService(trimmed);
+
       if (requestId !== activeRequestIdRef.current) {
         return;
       }
+
       setUsers(response.success && response.data ? response.data : []);
     } finally {
       if (requestId === activeRequestIdRef.current) {

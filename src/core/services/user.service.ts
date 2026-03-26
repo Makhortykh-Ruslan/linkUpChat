@@ -16,6 +16,7 @@ import {
   getAuthData,
   getSystemSettingByUserIdRepository,
   getUserByIdRepository,
+  getUsersBySearchWithoutCurrentUserRepository,
   removeAvatarRepository,
   signIn,
   updateAuthUser,
@@ -267,6 +268,7 @@ export async function getUsersWithFiltersService(
 ): Promise<ResponseModel<UserDTO[]>> {
   try {
     const authUser = await getAuthData();
+
     if (!authUser?.id) {
       return {
         ...ERROR_DEFAULT_RESPONSE_MODEL,
@@ -275,7 +277,29 @@ export async function getUsersWithFiltersService(
       };
     }
 
-    const data = [].map(mapUserToDTO);
+    const trimmedSearch = search?.trim() ?? '';
+    if (!trimmedSearch) {
+      return {
+        ...SUCCESS_DEFAULT_RESPONSE_MODEL,
+        data: [],
+      };
+    }
+
+    const { data: users, error } =
+      await getUsersBySearchWithoutCurrentUserRepository(
+        trimmedSearch,
+        authUser.id,
+      );
+
+    if (error) {
+      return {
+        ...ERROR_DEFAULT_RESPONSE_MODEL,
+        message: error.message,
+        data: null,
+      };
+    }
+
+    const data = (users ?? []).map(mapUserToDTO);
 
     return {
       ...SUCCESS_DEFAULT_RESPONSE_MODEL,

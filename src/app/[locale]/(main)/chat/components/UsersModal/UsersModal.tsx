@@ -39,7 +39,6 @@ export const UsersModal = ({ isOpen, onClose }: UsersModalProps) => {
           <div className={styles.input}>
             <Input
               id="search-users"
-              type="search"
               placeholder={placeholders('searchUsers')}
               leftIcon="search"
               aria-label={titles('searchUsers')}
