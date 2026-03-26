@@ -16,7 +16,6 @@ import {
   getAuthData,
   getSystemSettingByUserIdRepository,
   getUserByIdRepository,
-  getUsersExceptCurrentUserRepository,
   removeAvatarRepository,
   signIn,
   updateAuthUser,
@@ -276,20 +275,7 @@ export async function getUsersWithFiltersService(
       };
     }
 
-    const { data: users, error } = await getUsersExceptCurrentUserRepository(
-      authUser.id,
-      search ?? undefined,
-    );
-
-    if (error) {
-      return {
-        ...ERROR_DEFAULT_RESPONSE_MODEL,
-        message: error.message,
-        data: null,
-      };
-    }
-
-    const data = (users ?? []).map(mapUserToDTO);
+    const data = [].map(mapUserToDTO);
 
     return {
       ...SUCCESS_DEFAULT_RESPONSE_MODEL,

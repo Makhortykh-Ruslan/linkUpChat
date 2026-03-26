@@ -92,9 +92,10 @@ export async function signUpService(
       email: model.email,
       user_name: model.fullName,
       avatar_url: '',
-      language: 'en',
-      theme: 'light',
+      is_online: true,
     });
+
+    console.log('userError', userError);
 
     if (userError) {
       await signOut();
@@ -109,6 +110,8 @@ export async function signUpService(
       language: 'en',
       theme: 'light',
     });
+
+    console.log('settingsError', settingsError);
 
     if (settingsError) {
       return {

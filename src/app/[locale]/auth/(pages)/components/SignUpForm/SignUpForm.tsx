@@ -92,7 +92,7 @@ export const SignUpForm = () => {
           type="submit"
         >
           {isLoading && <Loader />}
-          {isLoading ? translate.button('pending') : translate.button('logIn')}
+          {isLoading ? translate.button('pending') : translate.button('signUp')}
         </Button>
       </form>
 

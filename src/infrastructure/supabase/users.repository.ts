@@ -5,7 +5,7 @@ import type { UserModel } from '@/src/core/models';
 import type { PostgrestUserResponse } from '@/src/core/types';
 import { createClient } from '@/src/infrastructure/supabase/server.supabase';
 
-export async function insertUserRepository(data: UserModel) {
+export async function insertUserRepository(data: Partial<UserModel>) {
   const supabase = await createClient();
   return supabase.from(EBDTableName.USERS).insert(data);
 }
