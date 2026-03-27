@@ -1,15 +1,16 @@
-import { type ChangeEvent, useCallback, useRef, useState } from 'react';
+import {
+  type ChangeEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import type { UserDTO } from '@/src/core/dto';
 import { getUsersWithFiltersService } from '@/src/core/services';
+import { debounce } from '@/src/core/utils';
 
 const SEARCH_DEBOUNCE_MS = 300;
-
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
 
 export function useUsersSearch() {
   const [search, setSearch] = useState('');
@@ -18,15 +19,9 @@ export function useUsersSearch() {
 
   const activeRequestIdRef = useRef(0);
 
-  const runSearchForQuery = useCallback(async (query: string) => {
-    const requestId = ++activeRequestIdRef.current;
-
-    await sleep(SEARCH_DEBOUNCE_MS);
-    if (requestId !== activeRequestIdRef.current) {
-      return;
-    }
-
+  const fetchUsers = useCallback(async (query: string) => {
     const trimmed = query.trim();
+    const requestId = ++activeRequestIdRef.current;
 
     if (!trimmed) {
       setUsers([]);
@@ -39,9 +34,7 @@ export function useUsersSearch() {
     try {
       const response = await getUsersWithFiltersService(trimmed);
 
-      if (requestId !== activeRequestIdRef.current) {
-        return;
-      }
+      if (requestId !== activeRequestIdRef.current) return;
 
       setUsers(response.success && response.data ? response.data : []);
     } finally {
@@ -51,13 +44,21 @@ export function useUsersSearch() {
     }
   }, []);
 
+  const debouncedFetchRef = useRef(debounce(fetchUsers, SEARCH_DEBOUNCE_MS));
+
+  useEffect(() => {
+    return () => {
+      debouncedFetchRef.current.cancel();
+    };
+  }, []);
+
   const handleSearchChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setSearch(value);
-      void runSearchForQuery(value);
+      void debouncedFetchRef.current(value);
     },
-    [runSearchForQuery],
+    [],
   );
 
   return {
