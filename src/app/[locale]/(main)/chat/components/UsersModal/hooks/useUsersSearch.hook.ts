@@ -6,11 +6,10 @@ import {
   useState,
 } from 'react';
 
+import { USERS_SEARCH_DEBOUNCE_MS } from '@/src/core/constants';
 import type { UserDTO } from '@/src/core/dto';
 import { getUsersWithFiltersService } from '@/src/core/services';
 import { debounce } from '@/src/core/utils';
-
-const SEARCH_DEBOUNCE_MS = 300;
 
 export function useUsersSearch() {
   const [search, setSearch] = useState('');
@@ -44,7 +43,9 @@ export function useUsersSearch() {
     }
   }, []);
 
-  const debouncedFetchRef = useRef(debounce(fetchUsers, SEARCH_DEBOUNCE_MS));
+  const debouncedFetchRef = useRef(
+    debounce(fetchUsers, USERS_SEARCH_DEBOUNCE_MS),
+  );
 
   useEffect(() => {
     return () => {
