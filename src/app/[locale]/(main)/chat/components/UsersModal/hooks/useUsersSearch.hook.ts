@@ -57,7 +57,7 @@ export function useUsersSearch() {
     (event: ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       setSearch(value);
-      void debouncedFetchRef.current(value);
+      debouncedFetchRef.current(value);
     },
     [],
   );

@@ -13,6 +13,7 @@ import { getSideBarStyles } from './SideBarHeader.styles';
 export const SideBarHeader = () => {
   const router = useRouter();
   const titles = useTranslations('titles');
+
   const [isUsersModalOpen, setIsUsersModalOpen] = useState(false);
 
   const handleRedirectToSettings = () => {
