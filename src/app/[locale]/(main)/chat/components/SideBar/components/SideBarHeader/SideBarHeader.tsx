@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 import { Icon } from '@/src/core/components';
 import { appRoutes } from '@/src/core/constants';
+import type { UserDTO } from '@/src/core/dto';
+import { findOrCreateConversation } from '@/src/core/services/conversation.service';
 import { useRouter } from '@/src/i18n/routing';
 
 import { UsersModal } from '../../../UsersModal';
@@ -22,6 +24,15 @@ export const SideBarHeader = () => {
 
   const handleOpenUsersModal = () => {
     setIsUsersModalOpen(true);
+  };
+
+  const handleUsersModalClose = async (user?: UserDTO) => {
+    setIsUsersModalOpen(false);
+
+    if (!user) return;
+
+    const conversationId = await findOrCreateConversation(user.id);
+    router.push(`${appRoutes.main.chat}/${conversationId}`);
   };
 
   const styles = getSideBarStyles();
@@ -46,7 +57,7 @@ export const SideBarHeader = () => {
 
       <UsersModal
         isOpen={isUsersModalOpen}
-        onClose={() => setIsUsersModalOpen(false)}
+        onClose={handleUsersModalClose}
       />
     </>
   );

@@ -7,18 +7,26 @@ import { Input, Tabs } from '@/src/core/components';
 import type { TTab } from '@/src/core/components/Tabs/type';
 import { appRoutes } from '@/src/core/constants/router-paths';
 import type { ConversationDTO } from '@/src/core/dto/conversation.dto';
-import { useRouter } from '@/src/i18n/routing';
+import { usePathname, useRouter } from '@/src/i18n/routing';
 
 import { ConversationCard } from './components';
 import { SIDEBAR_TABS_CONFIG, type TTabConfigKey } from './constants';
 import { ConversationsStyles } from './Conversations.styles';
+import { useConversationsRealtime } from './hooks/useConversationsRealtime';
 
 type Props = {
   conversations: ConversationDTO[];
+  userId: string;
 };
 
-export const Conversations = ({ conversations }: Props) => {
+export const Conversations = ({
+  conversations: initialConversations,
+  userId,
+}: Props) => {
+  const conversations = useConversationsRealtime(initialConversations, userId);
   const router = useRouter();
+  const pathname = usePathname();
+  const activeConversationId = pathname.split('/').at(-1);
   const [activeTabId, setActiveTabId] = useState<TTabConfigKey>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -76,6 +84,7 @@ export const Conversations = ({ conversations }: Props) => {
             title={el.title}
             avatarUrl={el.avatarUrl}
             lastMessage={el.lastMessage}
+            isActive={el.conversationId === activeConversationId}
             onClick={() => selectConversation(el.conversationId)}
           />
         ))}

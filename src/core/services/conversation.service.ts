@@ -102,6 +102,43 @@ export async function getSidebarConversations(): Promise<ConversationDTO[]> {
   });
 }
 
+export async function getConversationDTOById(
+  conversationId: string,
+): Promise<ConversationDTO | null> {
+  const authUser = await getAuthData();
+  if (!authUser) throw new Error('Not authenticated');
+
+  const authUserId = authUser.id;
+
+  const [conversation, allParticipants] = await Promise.all([
+    getConversationById(conversationId),
+    getParticipantsByConversationId(conversationId),
+  ]);
+
+  if (!conversation) return null;
+
+  const otherParticipants = allParticipants.filter(
+    (p) => p.user_id !== authUserId,
+  );
+  const otherUserIds = otherParticipants.map((p) => p.user_id);
+
+  const [users, messages] = await Promise.all([
+    getUsersByIdsRepository(otherUserIds),
+    getLastConversationMessage([conversationId]),
+  ]);
+
+  const otherUser = users[0] ?? null;
+  const lastMessage = messages[0] ?? null;
+
+  return {
+    conversationId: conversation.id,
+    type: conversation.type,
+    title: otherUser?.user_name ?? null,
+    avatarUrl: otherUser?.avatar_url ?? null,
+    lastMessage,
+  };
+}
+
 export type ConversationDetailsDTO = {
   conversationId: string;
   type: 'direct' | 'group';
