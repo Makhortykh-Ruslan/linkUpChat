@@ -13,6 +13,7 @@ export const SignUpForm = () => {
     handleSubmit,
     isDisableSubmit,
     errors,
+    touchedFields,
     register,
     translate,
     isLoading,
@@ -72,14 +73,14 @@ export const SignUpForm = () => {
         <div className={styles.component_input}>
           <Input
             isPasswordFlow
-            id="password"
+            id="confirmPassword"
             leftIcon="lock"
-            label={translate.labels('password')}
-            placeholder={translate.placeholders('password')}
-            {...register('password')}
+            label={translate.labels('confirmPassword')}
+            placeholder={translate.placeholders('confirmPassword')}
+            {...register('confirmPassword')}
             error={
-              errors.password?.message
-                ? translate.validations(errors.password?.message)
+              errors.confirmPassword?.message && touchedFields.confirmPassword
+                ? translate.validations(errors.confirmPassword.message as Parameters<typeof translate.validations>[0])
                 : ''
             }
           />

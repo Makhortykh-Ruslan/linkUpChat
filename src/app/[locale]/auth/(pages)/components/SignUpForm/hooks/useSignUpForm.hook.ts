@@ -26,7 +26,7 @@ export const useSignUpForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors, isSubmitting, isValid, touchedFields },
   } = useForm<TSignIUpFormSchema>({
     resolver: zodResolver(signUpFormSchema),
     mode: 'onTouched',
@@ -42,6 +42,7 @@ export const useSignUpForm = () => {
     register,
     translate,
     errors,
+    touchedFields,
     serverError: state.message,
     handleSubmit: handleSubmit(onSubmit),
     isLoading: isPending || isSubmitting,
