@@ -40,13 +40,12 @@ export function useActionInterceptor<T, R>(
     const variant = state.success ? 'success' : 'error';
     const t = state.success ? tSuccess : tError;
 
-    console.log('state.message', state);
-    // showAlert({
-    //   title: t(`${state.message}.title`),
-    //   description: t(`${state.message}.description`),
-    //   variant,
-    //   autoHide: true,
-    // });
+    showAlert({
+      title: t(`${state.message}.title`),
+      description: t(`${state.message}.description`),
+      variant,
+      autoHide: true,
+    });
 
     if (state.success) {
       onSuccess?.(state.data);

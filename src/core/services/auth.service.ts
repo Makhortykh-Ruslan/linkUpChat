@@ -11,11 +11,13 @@ import { appRoutes } from '@/src/core/constants/router-paths';
 import type { SignInModel, SignUpModel } from '@/src/core/models';
 import type { ResponseEmptyModel } from '@/src/core/types';
 import {
+  getAuthData,
   insertSystemSettingsRepository,
   insertUserRepository,
   signIn,
   signOut,
   signUp,
+  updateUserRepository,
 } from '@/src/infrastructure/supabase';
 
 export async function signInService(
@@ -27,13 +29,20 @@ export async function signInService(
   try {
     const { email, password } = model;
 
-    const { error } = await signIn(email, password);
+    const { data: signInData, error } = await signIn(email, password);
 
     if (error) {
       return {
         ...ERROR_DEFAULT_RESPONSE_MODEL,
         message: 'authError',
       };
+    }
+
+    if (signInData?.user?.id) {
+      await updateUserRepository({
+        id: signInData.user.id,
+        is_online: true,
+      });
     }
 
     redirectPath = appRoutes.main.chat;
@@ -95,8 +104,6 @@ export async function signUpService(
       is_online: true,
     });
 
-    console.log('userError', userError);
-
     if (userError) {
       await signOut();
       return {
@@ -110,8 +117,6 @@ export async function signUpService(
       language: 'en',
       theme: 'light',
     });
-
-    console.log('settingsError', settingsError);
 
     if (settingsError) {
       return {
@@ -143,6 +148,16 @@ export async function signUpService(
 }
 
 export async function signOutService() {
+  const authUser = await getAuthData();
+
+  if (!authUser?.id) {
+    return;
+  }
+
+  await updateUserRepository({
+    id: authUser.id,
+    is_online: false,
+  });
   await signOut();
 
   const pathRedirect = appRoutes.auth.signIn;

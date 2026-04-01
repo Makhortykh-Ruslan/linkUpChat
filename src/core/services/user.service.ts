@@ -267,6 +267,16 @@ export async function deleteAvatarService(): Promise<ResponseEmptyModel> {
   }
 }
 
+export async function setUserOnlineStatusAction(
+  isOnline: boolean,
+): Promise<void> {
+  const authUser = await getAuthData();
+
+  if (!authUser?.id) return;
+
+  await updateUserRepository({ id: authUser.id, is_online: isOnline });
+}
+
 export async function getUsersWithFiltersService(
   search?: string,
 ): Promise<ResponseModel<UserDTO[]>> {

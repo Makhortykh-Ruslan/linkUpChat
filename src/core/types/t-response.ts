@@ -9,8 +9,6 @@ export type PostgrestSystemResponse =
 
 export type PostgrestUserResponse = PostgrestSingleResponse<UserModel>;
 
-export type PostgrestUserListResponse = PostgrestSingleResponse<UserModel[]>;
-
 export type ResponseEmptyModel = ResponseModel<null>;
 
 export type ResponseUserDTOModel = ResponseModel<UserDTO>;
