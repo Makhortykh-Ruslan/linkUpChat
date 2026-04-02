@@ -28,8 +28,8 @@ export function useActionInterceptor<T, R>(
     if (!state.message) return;
 
     showAlert({
-      title: state.message,
-      description: state.description,
+      title: state.message || '',
+      description: state.description || '',
       variant: state.success ? 'success' : 'error',
       autoHide: true,
     });

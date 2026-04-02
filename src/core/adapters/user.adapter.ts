@@ -10,5 +10,6 @@ export const mapUserToDTO = (data: UserModel): UserDTO => {
     fullName: data.user_name,
     avatarUrl: data.avatar_url,
     isOnline: data.is_online ?? false,
+    locale: 'en',
   };
 };
