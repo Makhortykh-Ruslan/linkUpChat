@@ -2,7 +2,7 @@
 
 import { Avatar, Icon } from '@/src/core/components';
 import { appRoutes } from '@/src/core/constants/router-paths';
-import type { ConversationDetailsDTO } from '@/src/core/services/conversation.service';
+import type { ConversationDetailsDTO } from '@/src/core/dto';
 import { useRouter } from '@/src/i18n/routing';
 
 import { ConversationHeaderStyles } from './ConversationHeader.styles';
