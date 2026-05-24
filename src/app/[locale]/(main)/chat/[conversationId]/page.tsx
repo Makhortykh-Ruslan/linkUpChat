@@ -1,7 +1,6 @@
+import { getConversationDetails } from '@core/services';
+import { getAuthData, getMessages } from '@infrastructure/supabase';
 import type { Metadata } from 'next';
-
-import { getConversationDetails } from '@/src/core/services';
-import { getAuthData, getMessages } from '@/src/infrastructure/supabase';
 
 import {
   ConversationFooter,

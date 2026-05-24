@@ -1,7 +1,6 @@
+import type { MessageDTO } from '@core/dto';
+import { formatMessageTime } from '@core/utils';
 import { useLocale } from 'next-intl';
-
-import type { MessageDTO } from '@/src/core/dto';
-import { formatMessageTime } from '@/src/core/utils';
 
 import { MessageStyles } from './Message.styles';
 

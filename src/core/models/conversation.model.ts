@@ -1,4 +1,4 @@
-import type { TConversationType } from '@/src/core/types';
+import type { TConversationType } from '@core/types';
 
 export type ConversationModel = {
   type: TConversationType;

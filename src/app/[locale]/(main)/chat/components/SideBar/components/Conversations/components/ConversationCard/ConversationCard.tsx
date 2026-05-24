@@ -1,11 +1,10 @@
 'use client';
 
+import { Avatar } from '@core/components';
+import type { ConversationDTO } from '@core/dto/conversation.dto';
+import { formatMessageTime } from '@core/utils';
 import { useLocale } from 'next-intl';
 import React, { memo } from 'react';
-
-import { Avatar } from '@/src/core/components';
-import type { ConversationDTO } from '@/src/core/dto/conversation.dto';
-import { formatMessageTime } from '@/src/core/utils';
 
 import { conversationCardStyles } from './ConversationCard.styles';
 

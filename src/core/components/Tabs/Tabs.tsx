@@ -1,9 +1,8 @@
 'use client';
 
+import { tabsStyles } from '@core/components/Tabs/Tabs.styles';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
-
-import { tabsStyles } from '@/src/core/components/Tabs/Tabs.styles';
 
 import type { TTabsProps } from './types';
 

@@ -1,3 +1,7 @@
+import { USERS_SEARCH_DEBOUNCE_MS } from '@core/constants';
+import type { UserDTO } from '@core/dto';
+import { getUsersWithFiltersService } from '@core/services';
+import { debounce } from '@core/utils';
 import {
   type ChangeEvent,
   useCallback,
@@ -5,11 +9,6 @@ import {
   useRef,
   useState,
 } from 'react';
-
-import { USERS_SEARCH_DEBOUNCE_MS } from '@/src/core/constants';
-import type { UserDTO } from '@/src/core/dto';
-import { getUsersWithFiltersService } from '@/src/core/services';
-import { debounce } from '@/src/core/utils';
 
 export function useUsersSearch() {
   const [search, setSearch] = useState('');

@@ -1,15 +1,12 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-
 import {
   ERROR_DEFAULT_RESPONSE_MODEL,
   SUCCESS_DEFAULT_RESPONSE_MODEL,
-} from '@/src/core/constants';
-import { appRoutes } from '@/src/core/constants/router-paths';
-import type { SignInModel, SignUpModel } from '@/src/core/models';
-import type { ResponseEmptyModel } from '@/src/core/types';
+} from '@core/constants';
+import { appRoutes } from '@core/constants/router-paths';
+import type { SignInModel, SignUpModel } from '@core/models';
+import type { ResponseEmptyModel } from '@core/types';
 import {
   getAuthData,
   insertSystemSettingsRepository,
@@ -18,7 +15,9 @@ import {
   signOut,
   signUp,
   updateUserRepository,
-} from '@/src/infrastructure/supabase';
+} from '@infrastructure/supabase';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 
 export async function signInService(
   _state: ResponseEmptyModel,

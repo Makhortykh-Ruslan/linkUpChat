@@ -1,10 +1,5 @@
+import { defaultRequiredRule, emailRule, idControl } from '@core/validations';
 import { z } from 'zod';
-
-import {
-  defaultRequiredRule,
-  emailRule,
-  idControl,
-} from '@/src/core/validations';
 
 export const userFormSchema = z.object({
   fullName: defaultRequiredRule,

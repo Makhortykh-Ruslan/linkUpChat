@@ -1,7 +1,7 @@
 'use client';
 
-import { Icon } from '@/src/core/components';
-import type { UserDTO } from '@/src/core/dto';
+import { Icon } from '@core/components';
+import type { UserDTO } from '@core/dto';
 
 import { searchedUserStyles } from './SearchedUser.styles';
 

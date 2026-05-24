@@ -1,6 +1,5 @@
+import type { ResponseEmptyModel } from '@core/types';
 import { getTime } from 'date-fns';
-
-import type { ResponseEmptyModel } from '@/src/core/types';
 
 export const SUCCESS_DEFAULT_RESPONSE_MODEL: ResponseEmptyModel = {
   success: true,

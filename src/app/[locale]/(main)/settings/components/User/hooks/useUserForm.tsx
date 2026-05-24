@@ -1,11 +1,10 @@
+import type { UserDTO } from '@core/dto';
+import { useActionInterceptor } from '@core/hooks';
+import { updateUserInfoService } from '@core/services';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { startTransition } from 'react';
 import { useForm } from 'react-hook-form';
-
-import type { UserDTO } from '@/src/core/dto';
-import { useActionInterceptor } from '@/src/core/hooks';
-import { updateUserInfoService } from '@/src/core/services';
 
 import { type TUserFormSchema, userFormSchema } from '../constants';
 

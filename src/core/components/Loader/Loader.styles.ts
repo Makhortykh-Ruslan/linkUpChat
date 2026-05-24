@@ -1,6 +1,5 @@
+import type { TLoaderSize } from '@core/components/Loader/types';
 import clsx from 'clsx';
-
-import type { TLoaderSize } from '@/src/core/components/Loader/type/t-loader-size';
 
 export const geLoaderStyle = (
   className: string | undefined,

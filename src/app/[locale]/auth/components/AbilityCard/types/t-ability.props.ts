@@ -1,4 +1,4 @@
-import type { TIcon } from '@/src/core/types';
+import type { TIcon } from '@core/types';
 
 export type TAbilityCardProps = {
   iconName: TIcon;

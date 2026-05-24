@@ -1,8 +1,7 @@
 'use client';
 
+import type { TTheme } from '@core/types';
 import { createContext, useContext, useState } from 'react';
-
-import type { TTheme } from '@/src/core/types';
 
 import { DEFAULT_THEME_CONTEXT } from './constants';
 import type { ThemeContextType, ThemeProviderProps } from './types';

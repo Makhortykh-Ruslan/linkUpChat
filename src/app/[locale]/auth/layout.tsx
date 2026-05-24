@@ -1,9 +1,8 @@
+import { Logo } from '@core/components/Logo/Logo';
+import type { LayoutProps } from '@core/types';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import React from 'react';
-
-import { Logo } from '@/src/core/components/Logo/Logo';
-import type { LayoutProps } from '@/src/core/types';
 
 import { AbilityCard } from './components/AbilityCard';
 import { ABILITY_CARDS } from './constants/ability-cards';

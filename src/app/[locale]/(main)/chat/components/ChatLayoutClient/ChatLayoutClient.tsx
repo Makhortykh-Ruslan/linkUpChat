@@ -1,9 +1,8 @@
 'use client';
 
+import { appRoutes } from '@core/constants/router-paths';
+import { usePathname } from '@i18n/routing';
 import React from 'react';
-
-import { appRoutes } from '@/src/core/constants/router-paths';
-import { usePathname } from '@/src/i18n/routing';
 
 import { getChatLayoutStyles } from '../../styles';
 

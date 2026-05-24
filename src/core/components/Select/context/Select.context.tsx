@@ -1,8 +1,7 @@
 'use client';
 
+import type { TIdName } from '@core/types';
 import { createContext, useContext } from 'react';
-
-import type { TIdName } from '@/src/core/types';
 
 export type Coords = {
   top: number;

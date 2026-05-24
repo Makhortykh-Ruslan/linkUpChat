@@ -1,13 +1,12 @@
 'use client';
 
+import { Icon } from '@core/components';
+import { appRoutes } from '@core/constants';
+import type { UserDTO } from '@core/dto';
+import { findOrCreateConversation } from '@core/services/conversation.service';
+import { useRouter } from '@i18n/routing';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-
-import { Icon } from '@/src/core/components';
-import { appRoutes } from '@/src/core/constants';
-import type { UserDTO } from '@/src/core/dto';
-import { findOrCreateConversation } from '@/src/core/services/conversation.service';
-import { useRouter } from '@/src/i18n/routing';
 
 import { UsersModal } from '../../../UsersModal';
 import { getSideBarStyles } from './SideBarHeader.styles';

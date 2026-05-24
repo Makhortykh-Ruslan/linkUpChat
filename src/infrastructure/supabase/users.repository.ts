@@ -1,9 +1,9 @@
 'use server';
 
-import { EBDTableName } from '@/src/core/enums';
-import type { UserModel } from '@/src/core/models';
-import type { PostgrestUserResponse } from '@/src/core/types';
-import { createClient } from '@/src/infrastructure/supabase/server.supabase';
+import { EBDTableName } from '@core/enums';
+import type { UserModel } from '@core/models';
+import type { PostgrestUserResponse } from '@core/types';
+import { createClient } from '@infrastructure/supabase/server.supabase';
 
 export async function insertUserRepository(data: Partial<UserModel>) {
   const supabase = await createClient();

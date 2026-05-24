@@ -1,4 +1,4 @@
-import type { TIdName } from '@/src/core/types';
+import type { TIdName } from '@core/types';
 
 export const DEFAULT_SELECTED_LANG = {
   value: '🇺🇸 English',

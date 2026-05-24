@@ -1,4 +1,4 @@
-import type { TTab } from '@/src/core/components/Tabs/types';
+import type { TTab } from '@core/components/Tabs/types';
 
 export const SIDEBAR_TABS_CONFIG = [
   {

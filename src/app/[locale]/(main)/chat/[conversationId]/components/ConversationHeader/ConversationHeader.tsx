@@ -1,9 +1,9 @@
 'use client';
 
-import { Avatar, Icon } from '@/src/core/components';
-import { appRoutes } from '@/src/core/constants/router-paths';
-import type { ConversationDetailsDTO } from '@/src/core/dto';
-import { useRouter } from '@/src/i18n/routing';
+import { Avatar, Icon } from '@core/components';
+import { appRoutes } from '@core/constants/router-paths';
+import type { ConversationDetailsDTO } from '@core/dto';
+import { useRouter } from '@i18n/routing';
 
 import { ConversationHeaderStyles } from './ConversationHeader.styles';
 

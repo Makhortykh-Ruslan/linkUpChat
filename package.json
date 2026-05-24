@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "@supabase/postgrest-js": "2.106.1",
     "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.106.1",
     "@tailwindcss/postcss": "^4.1.18",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

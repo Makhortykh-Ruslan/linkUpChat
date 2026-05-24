@@ -1,8 +1,8 @@
 'use client';
 
-import { Button, Input, Loader } from '@/src/core/components';
-import { appRoutes } from '@/src/core/constants/router-paths';
-import { Link } from '@/src/i18n/routing';
+import { Button, Input, Loader } from '@core/components';
+import { appRoutes } from '@core/constants/router-paths';
+import { Link } from '@i18n/routing';
 
 import { useSignInForm } from './hooks';
 import { getSignInFormStyles } from './SignInFrom.styles';

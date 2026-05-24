@@ -1,10 +1,9 @@
 'use client';
 
+import type { ConversationDTO } from '@core/dto/conversation.dto';
+import { getConversationDTOById } from '@core/services/conversation.service';
+import { subscribeToUserParticipants } from '@infrastructure/supabase/realtime-participants.repository';
 import { useEffect, useState } from 'react';
-
-import type { ConversationDTO } from '@/src/core/dto/conversation.dto';
-import { getConversationDTOById } from '@/src/core/services/conversation.service';
-import { subscribeToUserParticipants } from '@/src/infrastructure/supabase/realtime-participants.repository';
 
 export function useConversationsRealtime(
   initialConversations: ConversationDTO[],

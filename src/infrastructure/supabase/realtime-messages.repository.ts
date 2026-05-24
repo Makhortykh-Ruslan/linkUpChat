@@ -1,9 +1,8 @@
 'use client';
 
+import { EBDTableName } from '@core/enums';
+import type { MessageModel } from '@core/models/message.model';
 import type { RealtimeChannel } from '@supabase/supabase-js';
-
-import { EBDTableName } from '@/src/core/enums';
-import type { MessageModel } from '@/src/core/models/message.model';
 
 import { createBrowserSupabaseClient } from './client.supabase';
 

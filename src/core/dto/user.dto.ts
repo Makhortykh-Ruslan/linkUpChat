@@ -1,5 +1,5 @@
-import type { UserModel } from '@/src/core/models';
-import type { TLang, TTheme } from '@/src/core/types';
+import type { UserModel } from '@core/models';
+import type { TLang, TTheme } from '@core/types';
 
 export type UserDTO = Pick<UserModel, 'id' | 'email'> & {
   fullName: string;

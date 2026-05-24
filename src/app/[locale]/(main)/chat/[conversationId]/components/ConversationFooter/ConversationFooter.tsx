@@ -1,12 +1,11 @@
 'use client';
 
+import { Button, Icon, Input } from '@core/components';
+import { Loader } from '@core/components/Loader/Loader';
+import { useActionInterceptor } from '@core/hooks';
+import { sendMessageServer } from '@core/services';
 import { useTranslations } from 'next-intl';
 import React, { startTransition, useState } from 'react';
-
-import { Button, Icon, Input } from '@/src/core/components';
-import { Loader } from '@/src/core/components/Loader/Loader';
-import { useActionInterceptor } from '@/src/core/hooks';
-import { sendMessageServer } from '@/src/core/services';
 
 import { ConversationFooterStyles } from './ConversationFooter.styles';
 

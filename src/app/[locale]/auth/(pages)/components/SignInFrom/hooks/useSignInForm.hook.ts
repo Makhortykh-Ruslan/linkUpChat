@@ -1,10 +1,9 @@
+import { useActionInterceptor } from '@core/hooks';
+import { signInService } from '@core/services';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { startTransition } from 'react';
 import { useForm } from 'react-hook-form';
-
-import { useActionInterceptor } from '@/src/core/hooks';
-import { signInService } from '@/src/core/services';
 
 import { signInFormSchema, type TSignInFormSchema } from '../constants';
 

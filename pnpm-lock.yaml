@@ -11,9 +11,15 @@ importers:
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.4.0(react-hook-form@7.76.1(react@19.2.1))
+      '@supabase/postgrest-js':
+        specifier: 2.106.1
+        version: 2.106.1
       '@supabase/ssr':
         specifier: ^0.8.0
         version: 0.8.0(@supabase/supabase-js@2.106.1)
+      '@supabase/supabase-js':
+        specifier: ^2.106.1
+        version: 2.106.1
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.3.0

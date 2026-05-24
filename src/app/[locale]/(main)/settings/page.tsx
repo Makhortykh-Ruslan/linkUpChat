@@ -1,8 +1,7 @@
+import { getUserInfoService } from '@core/services';
+import type { LayoutProps } from '@core/types';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-
-import { getUserInfoService } from '@/src/core/services';
-import type { LayoutProps } from '@/src/core/types';
 
 import {
   ChangePassword,

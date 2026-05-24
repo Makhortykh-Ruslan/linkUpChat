@@ -1,6 +1,5 @@
+import type { TIdName } from '@core/types';
 import clsx from 'clsx';
-
-import type { TIdName } from '@/src/core/types';
 
 export const TriggerStyles = <V, I>(
   isOpen: boolean,

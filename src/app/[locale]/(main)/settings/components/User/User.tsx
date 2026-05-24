@@ -1,10 +1,9 @@
 'use client';
 
+import { Avatar, Button, Input, Loader } from '@core/components';
+import type { UserDTO } from '@core/dto';
+import { useRouter } from '@i18n/routing';
 import { useState } from 'react';
-
-import { Avatar, Button, Input, Loader } from '@/src/core/components';
-import type { UserDTO } from '@/src/core/dto';
-import { useRouter } from '@/src/i18n/routing';
 
 import { ChangeAvatarModal } from './components';
 import { useUserForm } from './hooks';

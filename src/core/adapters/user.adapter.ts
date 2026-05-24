@@ -1,5 +1,5 @@
-import type { UserDTO } from '@/src/core/dto';
-import type { UserModel } from '@/src/core/models';
+import type { UserDTO } from '@core/dto';
+import type { UserModel } from '@core/models';
 
 export const mapUserToDTO = (data: UserModel): UserDTO => {
   return {

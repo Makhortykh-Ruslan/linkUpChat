@@ -1,14 +1,13 @@
 import './globals.css';
 
+import { appConfig } from '@app/[locale]/config';
+import { AlertProvider, ThemeProvider } from '@core/context';
+import type { LayoutProps } from '@core/types';
+import { redirect } from '@i18n/routing';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import React from 'react';
-
-import { appConfig } from '@/src/app/[locale]/config';
-import { AlertProvider, ThemeProvider } from '@/src/core/context';
-import type { LayoutProps } from '@/src/core/types';
-import { redirect } from '@/src/i18n/routing';
 
 const inter = Inter({
   variable: '--font-inter',

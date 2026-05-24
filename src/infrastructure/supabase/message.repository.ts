@@ -1,12 +1,12 @@
 'use server';
 
-import type { MessageDTO } from '@/src/core/dto';
-import { EBDTableName } from '@/src/core/enums';
+import type { MessageDTO } from '@core/dto';
+import { EBDTableName } from '@core/enums';
 import type {
   CreateMessageModel,
   MessageModel,
-} from '@/src/core/models/message.model';
-import { createClient } from '@/src/infrastructure/supabase/server.supabase';
+} from '@core/models/message.model';
+import { createClient } from '@infrastructure/supabase/server.supabase';
 
 export async function insertMessage(data: CreateMessageModel) {
   const supabase = await createClient();

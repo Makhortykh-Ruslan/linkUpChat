@@ -3,10 +3,10 @@
 import {
   ERROR_DEFAULT_RESPONSE_MODEL,
   SUCCESS_DEFAULT_RESPONSE_MODEL,
-} from '@/src/core/constants';
-import type { SendMessageModel } from '@/src/core/models/message.model';
-import type { ResponseEmptyModel } from '@/src/core/types';
-import { getAuthData, insertMessage } from '@/src/infrastructure/supabase';
+} from '@core/constants';
+import type { SendMessageModel } from '@core/models/message.model';
+import type { ResponseEmptyModel } from '@core/types';
+import { getAuthData, insertMessage } from '@infrastructure/supabase';
 
 export async function sendMessageServer(
   _prevData: ResponseEmptyModel,

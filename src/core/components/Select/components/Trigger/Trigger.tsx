@@ -1,8 +1,7 @@
 'use client';
 
+import { Icon } from '@core/components';
 import React from 'react';
-
-import { Icon } from '@/src/core/components';
 
 import { useSelectContext } from '../../context';
 import { TriggerStyles } from './Trigger.styles';

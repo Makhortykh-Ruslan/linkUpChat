@@ -1,7 +1,6 @@
+import { authProxy } from '@core/proxy-rules/auth.proxy';
 import { type NextRequest } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
-
-import { authProxy } from '@/src/core/proxy-rules/auth.proxy';
 
 import { routing } from './i18n/routing';
 

@@ -1,8 +1,8 @@
-import type { TTheme } from '@/src/core/types';
+import type { TTheme } from '@core/types';
 import {
   getAuthData,
   getSystemSettingByUserIdRepository,
-} from '@/src/infrastructure/supabase';
+} from '@infrastructure/supabase';
 
 export async function getMessages(locale: string) {
   return (await import(`../../../../messages/${locale}.json`)).default;

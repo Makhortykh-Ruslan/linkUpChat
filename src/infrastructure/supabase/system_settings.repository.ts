@@ -1,9 +1,9 @@
 'use server';
 
-import { EBDTableName } from '@/src/core/enums';
-import type { SystemSettingsModel } from '@/src/core/models';
-import type { PostgrestSystemResponse } from '@/src/core/types';
-import { createClient } from '@/src/infrastructure/supabase/server.supabase';
+import { EBDTableName } from '@core/enums';
+import type { SystemSettingsModel } from '@core/models';
+import type { PostgrestSystemResponse } from '@core/types';
+import { createClient } from '@infrastructure/supabase/server.supabase';
 
 export async function insertSystemSettingsRepository(
   model: SystemSettingsModel,

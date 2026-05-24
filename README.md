@@ -18,19 +18,90 @@ The goal was simple — pick three tools I wanted to get hands-on experience wit
 
 ## Tech Stack
 
-| Layer          | Technology                                        |
-| -------------- | ------------------------------------------------- |
-| Framework      | Next.js (App Router)                              |
-| Backend & Auth | Supabase (PostgreSQL + Auth + Realtime + Storage) |
-| Styling        | Tailwind CSS                                      |
-| Forms          | React Hook Form + Zod                             |
-| i18n           | next-intl                                         |
+| Layer           | Technology                                        |
+| --------------- | ------------------------------------------------- |
+| Framework       | Next.js 16 (App Router)                           |
+| Backend & Auth  | Supabase (PostgreSQL + Auth + Realtime + Storage) |
+| Styling         | Tailwind CSS 4                                    |
+| Forms           | React Hook Form + Zod                             |
+| i18n            | next-intl                                         |
+| Package manager | pnpm                                              |
+
+## Architecture
+
+The project follows **Layered Architecture** with elements of **Clean Architecture** — a strict separation of concerns across four layers:
+
+```
+┌─────────────────────────────────────┐
+│         Presentation Layer          │  app/ — pages, layouts, components
+├─────────────────────────────────────┤
+│        Business Logic Layer         │  core/services/ — server actions
+├─────────────────────────────────────┤
+│         Data Access Layer           │  infrastructure/supabase/repositories/
+├─────────────────────────────────────┤
+│        Infrastructure Layer         │  infrastructure/supabase/ — client setup
+└─────────────────────────────────────┘
+```
+
+### Key principles
+
+**Server Components first** — pages and layouts are async server components by default. Data is fetched on the server and passed to client components as props. Client components handle only interactivity.
+
+**Repository pattern** — each Supabase table has a dedicated repository. Services orchestrate repositories; components never access the database directly.
+
+**Unidirectional data flow:**
+
+```
+Page (Server Component)
+  → Service (server action, business logic)
+    → Repository (Supabase query)
+      → DTO returned to component
+        → Client Component (UI + interaction)
+          → useActionInterceptor (wraps mutations, handles alerts)
+```
+
+**Typed responses** — all server actions return `ResponseModel<T>` with `success`, `message`, `description`, and `data` fields. Errors surface automatically via `AlertContext`.
+
+### Folder structure
+
+```
+src/
+├── app/
+│   └── [locale]/
+│       ├── auth/               # sign-in, sign-up
+│       └── (main)/
+│           ├── chat/           # conversation list + [conversationId]
+│           └── settings/       # profile, password, preferences
+├── core/
+│   ├── components/             # shared UI kit (Button, Input, Modal…)
+│   ├── services/               # server actions (auth, user, conversation, message)
+│   ├── adapters/               # Model → DTO transformations
+│   ├── models/                 # domain types
+│   ├── dto/                    # data transfer objects
+│   ├── types/                  # shared TypeScript types
+│   ├── context/                # ThemeContext, AlertContext
+│   ├── hooks/                  # useActionInterceptor
+│   ├── validations/            # Zod schemas
+│   └── utils/                  # debounce, formatTime, generateId…
+└── infrastructure/
+    └── supabase/
+        ├── server.supabase.ts  # SSR client
+        └── repositories/       # one repository per table
+```
+
+### Path aliases
+
+| Alias               | Resolves to            |
+| ------------------- | ---------------------- |
+| `@core/*`           | `src/core/*`           |
+| `@infrastructure/*` | `src/infrastructure/*` |
+| `@/*`               | project root           |
 
 ## Getting Started
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -40,9 +111,21 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 Create a `.env.local` file:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_anon_key
+SUPABASE_URL=your_supabase_url
+SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_anon_key
 ```
+
+## Scripts
+
+| Command             | Description                      |
+| ------------------- | -------------------------------- |
+| `pnpm dev`          | Start development server         |
+| `pnpm build`        | Production build                 |
+| `pnpm lint`         | ESLint + folder naming check     |
+| `pnpm lint:fix`     | Auto-fix ESLint errors           |
+| `pnpm lint:folders` | Check folder naming conventions  |
+| `pnpm format`       | Format all files with Prettier   |
+| `pnpm format:check` | Check formatting without changes |
 
 ## AI Integration
 

@@ -1,4 +1,4 @@
-import type { TTheme } from '@/src/core/types';
+import type { TTheme } from '@core/types';
 
 export type ThemeContextType = {
   theme: TTheme;

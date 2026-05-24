@@ -1,11 +1,10 @@
 'use client';
 
+import { Message } from '@core/components';
+import type { MessageDTO } from '@core/dto';
+import type { MessageModel } from '@core/models/message.model';
+import { subscribeToConversationMessages } from '@infrastructure/supabase/realtime-messages.repository';
 import { useEffect, useRef, useState } from 'react';
-
-import { Message } from '@/src/core/components';
-import type { MessageDTO } from '@/src/core/dto';
-import type { MessageModel } from '@/src/core/models/message.model';
-import { subscribeToConversationMessages } from '@/src/infrastructure/supabase/realtime-messages.repository';
 
 type Props = {
   initialMessages: MessageDTO[];

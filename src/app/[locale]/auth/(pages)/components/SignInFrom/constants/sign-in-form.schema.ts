@@ -1,6 +1,5 @@
+import { emailRule, passwordRules } from '@core/validations';
 import { z } from 'zod';
-
-import { emailRule, passwordRules } from '@/src/core/validations';
 
 export const signInFormSchema = z.object({
   email: emailRule.min(1, 'required'),

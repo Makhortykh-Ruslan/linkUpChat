@@ -17,7 +17,9 @@
     "paths": {
       "@/*": ["./*"],
       "@core/*": ["./src/core/*"],
-      "@infrastructure/*": ["./src/infrastructure/*"]
+      "@infrastructure/*": ["./src/infrastructure/*"],
+      "@app/*": ["./src/app/*"],
+      "@i18n/*": ["./src/i18n/*"]
     },
     "incremental": true,
     "esModuleInterop": true,

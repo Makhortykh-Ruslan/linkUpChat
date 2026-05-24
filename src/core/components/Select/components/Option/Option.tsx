@@ -1,8 +1,7 @@
 'use client';
 
+import type { TIdName } from '@core/types';
 import type { ReactNode } from 'react';
-
-import type { TIdName } from '@/src/core/types';
 
 import { useSelectContext } from '../../context';
 import { OptionStyles } from './Option.styles';

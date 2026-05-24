@@ -1,6 +1,6 @@
-import type { UserModel } from '@/src/core/models';
-import type { MessageModel } from '@/src/core/models/message.model';
-import type { TConversationType } from '@/src/core/types';
+import type { UserModel } from '@core/models';
+import type { MessageModel } from '@core/models/message.model';
+import type { TConversationType } from '@core/types';
 
 export type ConversationDTO = {
   type: TConversationType;

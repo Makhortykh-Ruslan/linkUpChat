@@ -1,18 +1,15 @@
 'use server';
 
-import { mapUserToDTO } from '@/src/core/adapters/user.adapter';
+import { mapUserToDTO } from '@core/adapters/user.adapter';
 import {
   ERROR_DEFAULT_RESPONSE_MODEL,
   SUCCESS_DEFAULT_RESPONSE_MODEL,
-} from '@/src/core/constants';
-import type { UserDTO } from '@/src/core/dto';
-import type { ChangePasswordModel } from '@/src/core/models';
-import type { ResponseModel } from '@/src/core/models/response.model';
-import type {
-  ResponseEmptyModel,
-  ResponseUserDTOModel,
-} from '@/src/core/types';
-import { parseDataUrl } from '@/src/core/utils';
+} from '@core/constants';
+import type { UserDTO } from '@core/dto';
+import type { ChangePasswordModel } from '@core/models';
+import type { ResponseModel } from '@core/models/response.model';
+import type { ResponseEmptyModel, ResponseUserDTOModel } from '@core/types';
+import { parseDataUrl } from '@core/utils';
 import {
   getAuthData,
   getSystemSettingByUserIdRepository,
@@ -23,11 +20,11 @@ import {
   updateAuthUser,
   updateUserRepository,
   uploadAvatarRepository,
-} from '@/src/infrastructure/supabase';
+} from '@infrastructure/supabase';
 import {
   getOtherParticipantsInMyConversations,
   getParticipantsByUserId,
-} from '@/src/infrastructure/supabase/participants.repository';
+} from '@infrastructure/supabase/participants.repository';
 
 export const updateUserInfoService = async (
   _prevData: ResponseEmptyModel,

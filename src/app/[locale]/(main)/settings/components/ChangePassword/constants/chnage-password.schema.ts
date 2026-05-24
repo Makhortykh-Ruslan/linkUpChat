@@ -1,6 +1,5 @@
+import { passwordRules } from '@core/validations';
 import { z } from 'zod';
-
-import { passwordRules } from '@/src/core/validations';
 
 export const changePasswordFormSchema = z
   .object({

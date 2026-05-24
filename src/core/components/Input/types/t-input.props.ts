@@ -1,6 +1,5 @@
+import type { TIcon } from '@core/types';
 import type { InputHTMLAttributes } from 'react';
-
-import type { TIcon } from '@/src/core/types';
 
 export type TInputProps = {
   id: string;

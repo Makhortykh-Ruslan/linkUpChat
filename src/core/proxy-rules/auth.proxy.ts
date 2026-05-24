@@ -1,9 +1,8 @@
+import { appRoutes } from '@core/constants/router-paths';
+import type { TLang } from '@core/types';
+import { routing } from '@i18n/routing';
+import { createClient } from '@infrastructure/supabase';
 import { type NextRequest, NextResponse } from 'next/server';
-
-import { appRoutes } from '@/src/core/constants/router-paths';
-import type { TLang } from '@/src/core/types';
-import { routing } from '@/src/i18n/routing';
-import { createClient } from '@/src/infrastructure/supabase';
 
 export async function authProxy(request: NextRequest) {
   const { pathname } = request.nextUrl;

@@ -1,8 +1,8 @@
 'use server';
 
-import { EBDTableName } from '@/src/core/enums';
-import type { Participant } from '@/src/core/models';
-import { createClient } from '@/src/infrastructure/supabase/server.supabase';
+import { EBDTableName } from '@core/enums';
+import type { Participant } from '@core/models';
+import { createClient } from '@infrastructure/supabase/server.supabase';
 
 export async function insertParticipants(data: Participant[]) {
   const supabase = await createClient();

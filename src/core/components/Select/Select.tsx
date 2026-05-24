@@ -1,12 +1,8 @@
 'use client';
 
+import { type Coords, SelectContext } from '@core/components/Select/context';
+import type { TIdName } from '@core/types';
 import { type ReactNode, useState } from 'react';
-
-import {
-  type Coords,
-  SelectContext,
-} from '@/src/core/components/Select/context';
-import type { TIdName } from '@/src/core/types';
 
 import { Content, Option, Trigger } from './components';
 
@@ -33,7 +29,7 @@ export const Select = <V, I>({
       data-component="Select"
       value={{
         selectedValue: value,
-        onSelect,
+        onSelect: onSelect as (value: TIdName<unknown, unknown>) => void,
         isOpen,
         toggle,
         coords,

@@ -1,4 +1,4 @@
-import type { TAbilityCardProps } from '../components/AbilityCard/type/t-ability.props';
+import type { TAbilityCardProps } from '@app/[locale]/auth/components/AbilityCard/types/t-ability.props';
 
 export const ABILITY_CARDS: TAbilityCardProps[] = [
   {

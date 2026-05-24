@@ -1,7 +1,7 @@
-import { Icon } from '@/src/core/components/Icon/Icon';
+import type { TAbilityCardProps } from '@app/[locale]/auth/components/AbilityCard/types/t-ability.props';
+import { Icon } from '@core/components/Icon/Icon';
 
 import { getAbilityCardStyles } from './AbilityCard.styles';
-import type { TAbilityCardProps } from './type/t-ability.props';
 
 export const AbilityCard = ({
   iconName,

@@ -1,13 +1,12 @@
 'use client';
 
+import { Input, Tabs } from '@core/components';
+import type { TTab } from '@core/components/Tabs/types';
+import { appRoutes } from '@core/constants/router-paths';
+import type { ConversationDTO } from '@core/dto/conversation.dto';
+import { usePathname, useRouter } from '@i18n/routing';
 import { useTranslations } from 'next-intl';
 import React, { useCallback, useMemo, useState } from 'react';
-
-import { Input, Tabs } from '@/src/core/components';
-import type { TTab } from '@/src/core/components/Tabs/types';
-import { appRoutes } from '@/src/core/constants/router-paths';
-import type { ConversationDTO } from '@/src/core/dto/conversation.dto';
-import { usePathname, useRouter } from '@/src/i18n/routing';
 
 import { ConversationCard } from './components';
 import { SIDEBAR_TABS_CONFIG, type TTabConfigKey } from './constants';

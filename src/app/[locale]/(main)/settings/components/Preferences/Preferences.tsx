@@ -1,15 +1,14 @@
 'use client';
 
+import { Select, Toggle } from '@core/components';
+import { DEFAULT_SELECTED_LANG, LANGUAGES_MOCK } from '@core/constants';
+import { useThemeContext } from '@core/context';
+import type { UserDTO } from '@core/dto';
+import { updateSystemService } from '@core/services';
+import type { TIdName } from '@core/types';
+import { usePathname, useRouter } from '@i18n/routing';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-
-import { Select, Toggle } from '@/src/core/components';
-import { DEFAULT_SELECTED_LANG, LANGUAGES_MOCK } from '@/src/core/constants';
-import { useThemeContext } from '@/src/core/context';
-import type { UserDTO } from '@/src/core/dto';
-import { updateSystemService } from '@/src/core/services';
-import type { TIdName } from '@/src/core/types';
-import { usePathname, useRouter } from '@/src/i18n/routing';
 
 import { PreferencesStyles } from './Preferences.styles';
 

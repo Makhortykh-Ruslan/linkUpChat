@@ -1,9 +1,8 @@
+import { updatePasswordService } from '@core/services';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { startTransition, useActionState } from 'react';
 import { useForm } from 'react-hook-form';
-
-import { updatePasswordService } from '@/src/core/services';
 
 import {
   changePasswordFormSchema,

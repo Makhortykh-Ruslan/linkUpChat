@@ -1,12 +1,11 @@
-import { z } from 'zod';
-
 import {
   EMAIL_REGEXP,
   HAS_LOWERCASE,
   HAS_NUMBER,
   HAS_SYMBOL,
   HAS_UPPERCASE,
-} from '@/src/core/constants';
+} from '@core/constants';
+import { z } from 'zod';
 
 export const idControl = z.string();
 

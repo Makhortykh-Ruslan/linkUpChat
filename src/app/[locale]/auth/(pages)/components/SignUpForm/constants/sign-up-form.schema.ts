@@ -1,10 +1,9 @@
-import { z } from 'zod';
-
 import {
   defaultRequiredRule,
   emailRule,
   passwordRules,
-} from '@/src/core/validations';
+} from '@core/validations';
+import { z } from 'zod';
 
 export const signUpFormSchema = z
   .object({

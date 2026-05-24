@@ -1,7 +1,7 @@
 'use server';
 
-import { EStorageBucketName } from '@/src/core/enums';
-import { createClient } from '@/src/infrastructure/supabase/server.supabase';
+import { EStorageBucketName } from '@core/enums';
+import { createClient } from '@infrastructure/supabase/server.supabase';
 
 export async function uploadAvatarRepository(
   userId: string,

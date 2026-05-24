@@ -3,12 +3,12 @@
 import {
   ERROR_DEFAULT_RESPONSE_MODEL,
   SUCCESS_DEFAULT_RESPONSE_MODEL,
-} from '@/src/core/constants';
-import type { SystemSettingsModel } from '@/src/core/models';
+} from '@core/constants';
+import type { SystemSettingsModel } from '@core/models';
 import {
   getAuthData,
   updateSystemSettingsRepository,
-} from '@/src/infrastructure/supabase';
+} from '@infrastructure/supabase';
 
 export const updateSystemService = async (settings: SystemSettingsModel) => {
   try {

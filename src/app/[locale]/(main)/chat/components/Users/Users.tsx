@@ -1,9 +1,8 @@
 'use client';
 
+import type { UserModel } from '@core/models';
+import { findOrCreateConversation } from '@core/services/conversation.service';
 import { useRouter } from 'next/navigation';
-
-import type { UserModel } from '@/src/core/models';
-import { findOrCreateConversation } from '@/src/core/services/conversation.service';
 
 type UsersProps = {
   data: UserModel[];

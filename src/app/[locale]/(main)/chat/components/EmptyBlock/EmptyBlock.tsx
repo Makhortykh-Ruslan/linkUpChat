@@ -1,6 +1,5 @@
+import { Icon } from '@core/components';
 import { getTranslations } from 'next-intl/server';
-
-import { Icon } from '@/src/core/components';
 
 import { emptyBlockStyles } from './EmptyBlock.styles';
 

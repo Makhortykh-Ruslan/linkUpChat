@@ -1,9 +1,8 @@
 'use client';
 
+import { Icon, Input, Loader, Modal } from '@core/components';
+import type { UserDTO } from '@core/dto';
 import { useTranslations } from 'next-intl';
-
-import { Icon, Input, Loader, Modal } from '@/src/core/components';
-import type { UserDTO } from '@/src/core/dto';
 
 import { SearchedUser } from './components';
 import { useUsersSearch } from './hooks';

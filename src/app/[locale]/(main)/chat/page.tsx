@@ -1,7 +1,6 @@
+import type { LayoutProps } from '@core/types';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-
-import type { LayoutProps } from '@/src/core/types';
 
 import { EmptyBlock } from './components';
 import { pageStyles } from './styles';

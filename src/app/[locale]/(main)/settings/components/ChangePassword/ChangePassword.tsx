@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Input, Loader } from '@/src/core/components';
+import { Button, Input, Loader } from '@core/components';
 
 import { ChangePasswordStyles } from './ChangePassword.styles';
 import { useChangePasswordForm } from './hooks';

@@ -1,8 +1,7 @@
+import type { UserDTO } from '@core/dto';
+import type { SystemSettingsModel, UserModel } from '@core/models';
+import type { ResponseModel } from '@core/models/response.model';
 import type { PostgrestSingleResponse } from '@supabase/postgrest-js';
-
-import type { UserDTO } from '@/src/core/dto';
-import type { SystemSettingsModel, UserModel } from '@/src/core/models';
-import type { ResponseModel } from '@/src/core/models/response.model';
 
 export type PostgrestSystemResponse =
   PostgrestSingleResponse<SystemSettingsModel>;

@@ -1,10 +1,9 @@
 'use client';
 
+import { Button, Loader } from '@core/components';
+import { signOutService } from '@core/services';
 import { useTranslations } from 'next-intl';
 import { useActionState } from 'react';
-
-import { Button, Loader } from '@/src/core/components';
-import { signOutService } from '@/src/core/services';
 
 import { SessionStyles } from './Session.styles';
 

@@ -1,10 +1,9 @@
 'use client';
 
+import { Icon } from '@core/components';
+import { appRoutes } from '@core/constants';
+import { useRouter } from '@i18n/routing';
 import { useTranslations } from 'next-intl';
-
-import { Icon } from '@/src/core/components';
-import { appRoutes } from '@/src/core/constants';
-import { useRouter } from '@/src/i18n/routing';
 
 import { SettingsHeaderStyles } from './SettingsHeader.styles';
 

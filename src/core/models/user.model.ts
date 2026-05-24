@@ -1,4 +1,4 @@
-import type { TTheme } from '@/src/core/types';
+import type { TTheme } from '@core/types';
 
 export type UserModel = {
   email: string;

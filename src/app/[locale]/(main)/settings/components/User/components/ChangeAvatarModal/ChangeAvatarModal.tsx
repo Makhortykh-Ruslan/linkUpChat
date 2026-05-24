@@ -1,11 +1,8 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
-
-import { Avatar, Button, Icon, Loader, Modal } from '@/src/core/components';
-import { useAlert } from '@/src/core/context';
-import { deleteAvatarService, uploadAvatarService } from '@/src/core/services';
+import { Avatar, Button, Icon, Loader, Modal } from '@core/components';
+import { useAlert } from '@core/context';
+import { deleteAvatarService, uploadAvatarService } from '@core/services';
 import {
   captureVideoFrameAsDataUrl,
   getWebcamStream,
@@ -13,7 +10,9 @@ import {
   openFilePickerForImage,
   readImageAsDataUrl,
   stopMediaStream,
-} from '@/src/core/utils';
+} from '@core/utils';
+import { useTranslations } from 'next-intl';
+import { useEffect, useRef, useState } from 'react';
 
 import { ChangeAvatarModalStyles } from './ChangeAvatarModal.styles';
 

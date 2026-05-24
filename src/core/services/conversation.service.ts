@@ -3,9 +3,9 @@
 import type {
   ConversationDetailsDTO,
   ConversationDTO,
-} from '@/src/core/dto/conversation.dto';
-import type { UserModel } from '@/src/core/models';
-import type { MessageModel } from '@/src/core/models/message.model';
+} from '@core/dto/conversation.dto';
+import type { UserModel } from '@core/models';
+import type { MessageModel } from '@core/models/message.model';
 import {
   createConversation,
   getAuthData,
@@ -13,14 +13,14 @@ import {
   getConversationsByIds,
   getLastConversationMessage,
   getUsersByIdsRepository,
-} from '@/src/infrastructure/supabase';
+} from '@infrastructure/supabase';
 import {
   findExistingDirectConversationId,
   getOtherParticipantsInMyConversations,
   getParticipantsByConversationId,
   getParticipantsByUserId,
   insertParticipants,
-} from '@/src/infrastructure/supabase/participants.repository';
+} from '@infrastructure/supabase/participants.repository';
 
 export async function findOrCreateConversation(
   targetUserId: string,

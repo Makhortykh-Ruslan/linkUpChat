@@ -1,10 +1,9 @@
 'use client';
 
+import { ERROR_DEFAULT_RESPONSE_MODEL } from '@core/constants';
+import { useAlert } from '@core/context';
+import type { ResponseModel } from '@core/models/response.model';
 import { useActionState, useEffect } from 'react';
-
-import { ERROR_DEFAULT_RESPONSE_MODEL } from '@/src/core/constants';
-import { useAlert } from '@/src/core/context';
-import type { ResponseModel } from '@/src/core/models/response.model';
 
 import type {
   TActionInterceptorAction,

@@ -1,4 +1,4 @@
-import type { ResponseModel } from '@/src/core/models/response.model';
+import type { ResponseModel } from '@core/models/response.model';
 
 export type TActionInterceptorOptions<R> = {
   onSuccess?: (data: R | null) => void;

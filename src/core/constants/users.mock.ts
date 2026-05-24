@@ -1,4 +1,4 @@
-import type { UserDTO } from '@/src/core/dto';
+import type { UserDTO } from '@core/dto';
 
 export const MOCK_USERS: UserDTO[] = [
   {

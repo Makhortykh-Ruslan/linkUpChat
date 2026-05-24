@@ -1,5 +1,5 @@
-import { getSidebarConversations } from '@/src/core/services/conversation.service';
-import { getAuthData } from '@/src/infrastructure/supabase';
+import { getSidebarConversations } from '@core/services/conversation.service';
+import { getAuthData } from '@infrastructure/supabase';
 
 import { Conversations, SideBarHeader } from './components';
 

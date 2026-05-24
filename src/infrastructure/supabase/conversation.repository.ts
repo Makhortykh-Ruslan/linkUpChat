@@ -1,8 +1,8 @@
 'use server';
 
-import { EBDTableName } from '@/src/core/enums';
-import type { ConversationModel } from '@/src/core/models/conversation.model';
-import type { TConversationType } from '@/src/core/types';
+import { EBDTableName } from '@core/enums';
+import type { ConversationModel } from '@core/models/conversation.model';
+import type { TConversationType } from '@core/types';
 
 import { createClient } from './server.supabase';
 

@@ -1,10 +1,9 @@
 'use client';
 
+import { useSignUpForm } from '@app/[locale]/auth/(pages)/components/SignUpForm/hooks';
+import { Button, Input, Loader } from '@core/components';
+import { appRoutes } from '@core/constants/router-paths';
 import Link from 'next/link';
-
-import { useSignUpForm } from '@/src/app/[locale]/auth/(pages)/components/SignUpForm/hooks';
-import { Button, Input, Loader } from '@/src/core/components';
-import { appRoutes } from '@/src/core/constants/router-paths';
 
 import { getSignUpFormStyles } from './SignUpForm.styles';
 

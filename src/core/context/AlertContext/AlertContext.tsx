@@ -1,9 +1,8 @@
 'use client';
 
+import { Alert } from '@core/components/Alert/Alert';
+import type { TAlertProps } from '@core/components/Alert/types';
 import React, { createContext, useCallback, useContext, useState } from 'react';
-
-import { Alert } from '@/src/core/components/Alert/Alert';
-import type { TAlertProps } from '@/src/core/components/Alert/types';
 
 type TAlertOptions = Omit<TAlertProps, 'onDismiss'>;
 
