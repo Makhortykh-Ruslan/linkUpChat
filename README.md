@@ -135,7 +135,7 @@ On every opened or updated PR the workflow:
 
 1. Extracts the git diff (TypeScript, JavaScript, CSS — config files excluded)
 2. Sends it to the Claude API along with a set of project-specific review rules
-3. Posts the result as a comment on the PR in Ukrainian, grouped by severity: 🔴 Критично, 🟡 Попередження, 🟢 Пропозиція
+3. Posts the result as a comment on the PR, grouped by severity: 🔴 Critical, 🟡 Warning, 🟢 Suggestion
 
 The review script lives in [`scripts/pr/review-pr.mjs`](scripts/pr/review-pr.mjs) and the prompt template in [`scripts/pr/review-prompt.md`](scripts/pr/review-prompt.md).
 
