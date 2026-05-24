@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@core/*": ["./src/core/*"],
+      "@infrastructure/*": ["./src/infrastructure/*"]
     },
     "incremental": true,
     "esModuleInterop": true,

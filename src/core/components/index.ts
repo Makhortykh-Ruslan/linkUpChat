@@ -1,5 +1,5 @@
 export * from './Alert/Alert';
-export * from './Alert/type';
+export * from './Alert/types';
 export * from './Avatar/Avatar';
 export * from './Button/Button';
 export * from './Icon/Icon';

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import type { TAlertVariant } from './type';
+import type { TAlertVariant } from './types';
 
 const variantBorder = {
   error: 'border-l-red-600 dark:border-l-red-500',

@@ -1,5 +1,5 @@
 import { geLoaderStyle } from './Loader.styles';
-import type { TLoaderSize } from './type';
+import type { TLoaderSize } from './types';
 
 type props = {
   size?: TLoaderSize;

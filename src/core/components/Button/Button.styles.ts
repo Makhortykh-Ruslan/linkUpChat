@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import type { TBtnColor } from './type';
+import type { TBtnColor } from './types';
 
 export const getButtonStyles = (color: TBtnColor, className: string) => ({
   component: clsx(

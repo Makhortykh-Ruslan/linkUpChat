@@ -19,7 +19,9 @@ export const createClient = async () => {
           cookiesToSet.forEach(({ name, value, options }) =>
             cookieStore.set(name, value, options),
           );
-        } catch {}
+        } catch {
+          // setAll may fail in Server Components where cookies are read-only
+        }
       },
     },
   });

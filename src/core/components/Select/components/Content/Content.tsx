@@ -1,18 +1,29 @@
 'use client';
 
-import { type ReactNode, useLayoutEffect, useRef, useState } from 'react';
+import {
+  type ReactNode,
+  useLayoutEffect,
+  useRef,
+  useSyncExternalStore,
+} from 'react';
 import { createPortal } from 'react-dom';
 
 import { useSelectContext } from '../../context';
 import { ContentStyles } from './Content.styles';
 
+const subscribe = () => () => {};
+
 export const Content = ({ children }: { children: ReactNode }) => {
   const { isOpen, coords, toggle } = useSelectContext();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
   const contentRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    setMounted(true);
+    if (!isOpen) return;
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -23,9 +34,7 @@ export const Content = ({ children }: { children: ReactNode }) => {
       }
     };
 
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);

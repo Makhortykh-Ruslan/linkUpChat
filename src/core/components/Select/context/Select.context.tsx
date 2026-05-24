@@ -20,7 +20,7 @@ type SelectContextType<V, I> = {
 };
 
 export const SelectContext = createContext<
-  SelectContextType<any, any> | undefined
+  SelectContextType<unknown, unknown> | undefined
 >(undefined);
 
 export function useSelectContext<V, I>() {

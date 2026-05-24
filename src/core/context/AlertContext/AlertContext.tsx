@@ -3,7 +3,7 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 
 import { Alert } from '@/src/core/components/Alert/Alert';
-import type { TAlertProps } from '@/src/core/components/Alert/type';
+import type { TAlertProps } from '@/src/core/components/Alert/types';
 
 type TAlertOptions = Omit<TAlertProps, 'onDismiss'>;
 

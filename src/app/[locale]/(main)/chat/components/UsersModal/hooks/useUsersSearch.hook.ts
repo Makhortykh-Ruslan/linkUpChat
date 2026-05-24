@@ -44,7 +44,7 @@ export function useUsersSearch() {
   }, []);
 
   const debouncedFetchRef = useRef(
-    debounce(fetchUsers, USERS_SEARCH_DEBOUNCE_MS),
+    debounce(fetchUsers, USERS_SEARCH_DEBOUNCE_MS), // eslint-disable-line react-hooks/refs
   );
 
   useEffect(() => {

@@ -84,6 +84,7 @@ export const ChangeAvatarModal = ({
 
   useEffect(() => {
     if (!isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsWebcamMode(false);
       stopWebcam();
     }
@@ -100,7 +101,9 @@ export const ChangeAvatarModal = ({
     const play = async () => {
       try {
         await video.play();
-      } catch {}
+      } catch {
+        // video.play() may throw if the stream is interrupted — safe to ignore
+      }
     };
 
     void play();

@@ -2,11 +2,11 @@ import { getRequestConfig } from 'next-intl/server';
 
 import { routing } from '@/src/i18n/routing';
 
-export default getRequestConfig(async ({ locale }: any) => {
-  const activeLocale = (await locale) || routing.defaultLocale;
+export default getRequestConfig(async ({ requestLocale }) => {
+  const locale = (await requestLocale) ?? routing.defaultLocale;
 
   return {
-    locale: activeLocale,
-    messages: (await import(`../../messages/${activeLocale}.json`)).default,
+    locale,
+    messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });

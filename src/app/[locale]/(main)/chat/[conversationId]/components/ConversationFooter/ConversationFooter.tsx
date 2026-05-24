@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import React, { startTransition, useEffect, useState } from 'react';
+import React, { startTransition, useState } from 'react';
 
 import { Button, Icon, Input } from '@/src/core/components';
 import { Loader } from '@/src/core/components/Loader/Loader';
@@ -15,16 +15,12 @@ type Props = {
 };
 
 export const ConversationFooter = ({ conversationId }: Props) => {
-  const { execute, state, isPending } = useActionInterceptor(sendMessageServer);
   const [content, setContent] = useState('');
+  const { execute, isPending } = useActionInterceptor(sendMessageServer, {
+    onSuccess: () => setContent(''),
+  });
   const placeholders = useTranslations('placeholders');
   const styles = ConversationFooterStyles;
-
-  useEffect(() => {
-    if (state.success) {
-      setContent('');
-    }
-  }, [state.timestamp]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

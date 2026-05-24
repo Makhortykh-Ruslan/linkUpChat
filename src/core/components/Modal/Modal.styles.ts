@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import type { TModalVariant } from './type';
+import type { TModalVariant } from './types';
 
 export const getModalStyles = (
   variant: TModalVariant,

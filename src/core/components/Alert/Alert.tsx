@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { Portal } from '../Portal/Portal';
 import { getAlertStyles } from './Alert.styles';
-import type { TAlertProps } from './type';
+import type { TAlertProps } from './types';
 
 const DEFAULT_DURATION = 5000;
 

@@ -1,8 +1,3 @@
-export const generateIdUtil = () => {
-  if (typeof window !== 'undefined' && window.crypto?.randomUUID) {
-    return window.crypto.randomUUID();
-  }
-
-  const crypto = require('crypto');
+export const generateIdUtil = (): string => {
   return crypto.randomUUID();
 };

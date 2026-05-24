@@ -5,6 +5,9 @@
 
 # Dependencies
 /node_modules/
+package-lock.json
+yarn.lock
+.pnpm-store/
 
 # Logs
 *.log
@@ -40,3 +43,6 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+
+# Oh My Claude Code
+.omc/

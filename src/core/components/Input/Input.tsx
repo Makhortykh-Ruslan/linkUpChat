@@ -4,7 +4,7 @@ import React, { forwardRef, type MouseEvent, useState } from 'react';
 
 import { Icon } from '../Icon/Icon';
 import { getInputStyles } from './Input.styles';
-import type { TInputProps } from './type';
+import type { TInputProps } from './types';
 
 export const Input = forwardRef<HTMLInputElement, TInputProps>(
   (

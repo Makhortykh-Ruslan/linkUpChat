@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import { tabsStyles } from '@/src/core/components/Tabs/Tabs.styles';
 
-import type { TTabsProps } from './type';
+import type { TTabsProps } from './types';
 
 export const Tabs = <T extends string>({
   tabs,

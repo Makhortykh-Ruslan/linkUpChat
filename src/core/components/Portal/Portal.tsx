@@ -1,18 +1,20 @@
 'use client';
 
-import { useLayoutEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 
-import type { TPortalProps } from './type';
+import type { TPortalProps } from './types';
+
+const subscribe = () => () => {};
 
 export const Portal = ({ container, children }: TPortalProps) => {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
-  useLayoutEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted || typeof document === 'undefined') return null;
+  if (!mounted) return null;
 
   const target = container ?? document.body;
 

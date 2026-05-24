@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { Input, Tabs } from '@/src/core/components';
-import type { TTab } from '@/src/core/components/Tabs/type';
+import type { TTab } from '@/src/core/components/Tabs/types';
 import { appRoutes } from '@/src/core/constants/router-paths';
 import type { ConversationDTO } from '@/src/core/dto/conversation.dto';
 import { usePathname, useRouter } from '@/src/i18n/routing';

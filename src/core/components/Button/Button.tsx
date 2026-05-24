@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getButtonStyles } from './Button.styles';
-import type { TButtonProps } from './type';
+import type { TButtonProps } from './types';
 
 export const Button = ({
   disabled,

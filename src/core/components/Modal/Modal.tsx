@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { Portal } from '../Portal/Portal';
 import { getModalStyles } from './Modal.styles';
-import type { TModalProps } from './type';
+import type { TModalProps } from './types';
 
 export const Modal = ({
   isOpen,
@@ -17,11 +17,8 @@ export const Modal = ({
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      const id = requestAnimationFrame(() => setIsVisible(true));
-      return () => cancelAnimationFrame(id);
-    }
-    setIsVisible(false);
+    const id = requestAnimationFrame(() => setIsVisible(isOpen));
+    return () => cancelAnimationFrame(id);
   }, [isOpen]);
 
   const styles = getModalStyles(variant, contentClassName, isVisible);
